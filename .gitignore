@@ -1,0 +1,16 @@
+# Игнорируемые файлы
+.DS_Store
+node_modules/
+*.log
+*.tmp
+*.swp
+*.zip
+*.tar.gz
+.env
+.vscode/
+.idea/
+
+# Файлы сборки
+dist/
+build/
+out/

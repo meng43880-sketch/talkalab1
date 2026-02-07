@@ -1,0 +1,10 @@
+{
+  "name": "TalkaLab - AI для автоматизации продаж",
+  "short_name": "TalkaLab",
+  "description": "ИИ для бизнеса: AI-агент общается с клиентами 24/7, AI-Антихаос показывает реальную картину продаж",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#15bc8a",
+  "icons": []
+}
