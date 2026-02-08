@@ -2,13 +2,74 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /search/
+Disallow: /*?*
+Disallow: /*.php$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.ico$
 
-Sitemap: https://[username].github.io/[repository]/sitemap.xml
+# Яndex-specific directives
+User-agent: Yandex
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Clean-param: ref&source&utm_source&utm_medium&utm_campaign&utm_term&utm_content /index.html
+Clean-param: from&yclid&gclid&fbclid /index.html
+Host: https://talkalab.ru
 
+# Google-specific directives
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
+Disallow: /admin/
+Disallow: /wp-admin/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.ico$
 
-User-agent: YandexBot
+# Bing bot
+User-agent: Bingbot
 Allow: /
-Crawl-delay: 2
+Disallow: /admin/
+Disallow: /wp-admin/
+
+# Mail.ru bot
+User-agent: Mail.Ru
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+
+# Baidu bot
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin/
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+
+# Crawl delay (опционально, если сервер слабый)
+# Crawl-delay: 2
+
+# Sitemap location
+Sitemap: https://talkalab.ru/sitemap.xml
+Sitemap: https://talkalab.ru/sitemap-index.xml
+
+# Дополнительные карты сайта для разных типов контента
+Sitemap: https://talkalab.ru/sitemap-pages.xml
+Sitemap: https://talkalab.ru/sitemap-images.xml
+Sitemap: https://talkalab.ru/sitemap-videos.xml
