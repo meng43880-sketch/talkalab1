@@ -1,40 +1,57 @@
 <!DOCTYPE html>
-<html lang="ru" prefix="og: https://ogp.me/ns#">
+<html lang="ru" prefix="og: https://ogp.me/ns#" itemscope itemtype="https://schema.org/WebSite">
 <head>
     <!-- Базовые мета-теги -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Основные SEO теги -->
-    <title>TalkaLab — AI для автоматизации и контроля отдела продаж | ИИ для бизнеса</title>
-    <meta name="description" content="TalkaLab — ИИ для автоматизации продаж и контроля отдела. AI-агент общается с клиентами 24/7, AI-Антихаос показывает реальную картину продаж. Увеличьте выручку на 40% за 2 месяца.">
-    <meta name="keywords" content="ИИ для продаж, автоматизация отдела продаж, контроль продаж, AI-агент, AI-Антихаос, увеличение выручки, потеря лидов, CRM, бизнес автоматизация">
+    <title>TalkaLab — AI автоматизация продаж для бизнеса | ИИ для отдела продаж</title>
+    <meta name="description" content="TalkaLab — автоматизация продаж с ИИ для бизнеса. AI-агент общается с клиентами 24/7, AI-Антихаос показывает реальную картину. Увеличьте выручку на 40% за 2 месяца.">
+    <meta name="keywords" content="автоматизация продаж, AI для бизнеса, автоматизация отдела продаж, внедрение искусственного интеллекта, талкалаб, talkalab, автоматизация обработки заявок, внедрение CRM, автоматизация лидогенерации, автоматизация маркетинга и продаж">
     
     <!-- Канонический URL -->
-    <link rel="canonical" href="https://[username].github.io/[repository]/">
+    <link rel="canonical" href="https://talkalab.ru/" />
+    
+    <!-- Дополнительные SEO мета-теги -->
+    <meta name="author" content="TalkaLab">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#15bc8a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Open Graph для соцсетей -->
-    <meta property="og:title" content="TalkaLab — AI для автоматизации и контроля отдела продаж">
-    <meta property="og:description" content="ИИ для бизнеса: AI-агент общается с клиентами 24/7, AI-Антихаос показывает реальную картину продаж">
+    <meta property="og:title" content="TalkaLab — AI автоматизация продаж для бизнеса | ИИ для отдела продаж">
+    <meta property="og:description" content="Автоматизация продаж с ИИ: AI-агент общается с клиентами 24/7, AI-Антихаос показывает реальную картину продаж">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://[username].github.io/[repository]/">
-    <meta property="og:image" content="https://[username].github.io/[repository]/og-image.jpg">
+    <meta property="og:url" content="https://talkalab.ru/">
+    <meta property="og:image" content="images/og-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="TalkaLab">
     <meta property="og:locale" content="ru_RU">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TalkaLab — AI для автоматизации и контроля отдела продаж">
+    <meta name="twitter:title" content="TalkaLab — AI автоматизация продаж для бизнеса">
     <meta name="twitter:description" content="ИИ для бизнеса: AI-агент общается с клиентами 24/7, AI-Антихаос показывает реальную картину продаж">
-    <meta name="twitter:image" content="https://[username].github.io/[repository]/twitter-image.jpg">
+    <meta name="twitter:image" content="images/og-preview.jpg">
+    <meta name="twitter:site" content="@talkalab">
     
-    <!-- Фавиконки -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    <!-- Фавиконки (согласно скриншоту) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="msapplication-TileColor" content="#15bc8a">
+    <meta name="msapplication-TileImage" content="mstile-144x144.png">
     
-    <!-- Шрифты -->
+    <!-- Предзагрузка критических ресурсов -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Стили -->
@@ -45,14 +62,23 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://talkalab.ru/#organization",
         "name": "TalkaLab",
-        "description": "ИИ для автоматизации продаж и контроля отдела продаж",
-        "url": "https://[username].github.io/[repository]/",
-        "logo": "https://i.yapx.ru/c0GqR.png",
+        "description": "Компания по автоматизации продаж с использованием искусственного интеллекта для бизнеса",
+        "url": "https://talkalab.ru/",
+        "logo": "https://talkalab.ru/images/logo.png",
+        "sameAs": [
+            "https://t.me/talka_lab"
+        ],
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer service",
-            "url": "https://t.me/talka_lab"
+            "url": "https://t.me/talka_lab",
+            "availableLanguage": ["Russian"]
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Russia"
         }
     }
     </script>
@@ -61,20 +87,107 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://talkalab.ru/#website",
+        "url": "https://talkalab.ru/",
         "name": "TalkaLab",
-        "url": "https://[username].github.io/[repository]/"
+        "description": "Автоматизация продаж с ИИ для бизнеса",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://talkalab.ru/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
     }
     </script>
     
-    <!-- Дополнительные мета-теги -->
-    <meta name="author" content="TalkaLab">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#15bc8a">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Автоматизация продаж с ИИ",
+        "provider": {
+            "@type": "Organization",
+            "name": "TalkaLab"
+        },
+        "description": "AI-агент для общения с клиентами 24/7 и AI-Антихаос для контроля продаж",
+        "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "150000",
+            "highPrice": "200000",
+            "priceCurrency": "RUB",
+            "offerCount": "2"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Russia"
+        }
+    }
+    </script>
+    
+    <!-- Статья/FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "Что такое TalkaLab?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ИИ для бизнеса, который помогает не терять лиды и контролировать продажи, чтобы вы зарабатывали больше и понимали, куда уходят деньги."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Чем отличаются AI-агент и AI-Антихаос?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AI-агент — продаёт вместо менеджеров, ведёт диалог, квалифицирует и передаёт готовых клиентов. AI-Антихаос — показывает реальную картину продаж, выявляет потери и даёт рекомендации."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Что такое пилот и зачем он нужен?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Пилот — 5–7 дней работы системы, чтобы показать реальные потери и результат. Клиент видит цифры, а не догадки и понимает, какой продукт или связка даст рост."
+            }
+        }]
+    }
+    </script>
+    
+    <!-- Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://talkalab.ru/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Автоматизация продаж",
+            "item": "https://talkalab.ru/#services"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Стоимость",
+            "item": "https://talkalab.ru/#pricing"
+        }]
+    }
+    </script>
     
     <!-- PWA манифест -->
     <link rel="manifest" href="./manifest.json">
+    
+    <!-- Дополнительные SEO заголовки -->
+    <meta name="google-site-verification" content="ваш_код_верификации">
+    <meta name="yandex-verification" content="ваш_код_верификации">
+    
+    <!-- Скрытые SEO заголовки для поисковых запросов -->
+    <meta name="seo-keywords" content="автоматизация продаж для малого бизнеса, автоматизация продаж для среднего бизнеса, ai для бизнеса, внедрение ai в бизнес, цифровизация отдела продаж, автоматизация работы менеджеров, оптимизация воронки продаж, автоматизация обработки лидов, автоматизация общения с клиентами, автоматизация маркетинга, бизнес теряет заявки, мало продаж, падают продажи, менеджеры не обрабатывают лиды, заявки не доходят до менеджеров, нет системы продаж, хаос в отделе продаж, менеджеры забывают писать клиентам, нет контроля продаж, внедрение автоматизации продаж под ключ, настройка системы продаж, построение отдела продаж, внедрение digital продаж, настройка CRM + AI, автоматизация заявок сайта, интеграция сайта и CRM, внедрение sales automation, заказать автоматизацию продаж, внедрение автоматизации цена, стоимость автоматизации продаж, ai автоматизация бизнеса цена, внедрение crm под ключ цена, автоматизация продаж для онлайн-школ, автоматизация продаж для клиник, автоматизация продаж для агентств, автоматизация продаж для b2b, автоматизация продаж для услуг, автоматизация продаж для e-commerce">
 </head>
-<body>
+<body itemscope itemtype="https://schema.org/WebPage">
     <!-- Уведомление об успешной отправке -->
     <div class="success-notification" id="successNotification">
         <div class="success-icon">
@@ -100,30 +213,30 @@
     <header id="header">
         <div class="container header-container">
             <!-- Логотип СЛЕВА -->
-            <a href="./" class="logo">
-                <div class="logo-icon"></div>
-                <div class="logo-text">TalkaLab</div>
+            <a href="./" class="logo" itemprop="url" aria-label="TalkaLab - Главная страница">
+                <div class="logo-icon" itemprop="logo"></div>
+                <div class="logo-text" itemprop="name">TalkaLab</div>
             </a>
 
-            <nav class="nav">
-                <a href="#comparison" class="nav-link">Сравнение</a>
-                <a href="#services" class="nav-link">Решения</a>
-                <a href="#pricing" class="nav-link">Цены</a>
-                <a href="#audience" class="nav-link">Для кого</a>
-                <a href="#cases" class="nav-link">Кейсы</a>
-                <a href="#faq" class="nav-link">FAQ</a>
+            <nav class="nav" aria-label="Основная навигация" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                <a href="#comparison" class="nav-link" itemprop="url"><span itemprop="name">Сравнение</span></a>
+                <a href="#services" class="nav-link" itemprop="url"><span itemprop="name">Решения</span></a>
+                <a href="#pricing" class="nav-link" itemprop="url"><span itemprop="name">Цены</span></a>
+                <a href="#audience" class="nav-link" itemprop="url"><span itemprop="name">Для кого</span></a>
+                <a href="#cases" class="nav-link" itemprop="url"><span itemprop="name">Кейсы</span></a>
+                <a href="#faq" class="nav-link" itemprop="url"><span itemprop="name">FAQ</span></a>
                 <!-- Кнопка Telegram канала -->
-                <a href="https://t.me/talka_lab" class="btn btn-telegram-channel" target="_blank" rel="noopener">
+                <a href="https://t.me/talka_lab" class="btn btn-telegram-channel" target="_blank" rel="noopener noreferrer" aria-label="Наш Telegram канал">
                     <i class="fab fa-telegram btn-icon"></i> Канал
                 </a>
                 <!-- Основная кнопка консультации -->
-                <a href="#contact" class="btn btn-primary" onclick="openConsultationForm()">
+                <a href="#contact" class="btn btn-primary" onclick="openConsultationForm()" aria-label="Получить консультацию по автоматизации продаж">
                     <i class="fas fa-comments btn-icon"></i> Получить консультацию
                 </a>
             </nav>
 
             <!-- Кнопка гамбургера для мобильного меню -->
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -133,7 +246,7 @@
 
     <!-- Мобильное меню -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="./" class="nav-link">Главный экран</a>
+        <a href="./" class="nav-link" aria-label="Главная страница TalkaLab">Главный экран</a>
         <a href="#comparison" class="nav-link">Сравнение</a>
         <a href="#services" class="nav-link">Решения</a>
         <a href="#pricing" class="nav-link">Цены</a>
@@ -141,47 +254,48 @@
         <a href="#cases" class="nav-link">Кейсы</a>
         <a href="#faq" class="nav-link">FAQ</a>
         <!-- Кнопка канала в меню -->
-        <a href="https://t.me/talka_lab" class="btn btn-telegram-channel" target="_blank" rel="noopener">
+        <a href="https://t.me/talka_lab" class="btn btn-telegram-channel" target="_blank" rel="noopener noreferrer" aria-label="Telegram канал TalkaLab">
             <i class="fab fa-telegram btn-icon"></i> Наш канал
         </a>
         <!-- Основная кнопка консультации в меню -->
-        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()">
+        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()" aria-label="Заказать консультацию по автоматизации">
             <i class="fas fa-comments btn-icon"></i> Получить консультацию
         </a>
     </div>
 
     <!-- Блок 1: Герой -->
-    <section class="hero">
+    <section class="hero" itemprop="mainEntity" itemscope itemtype="https://schema.org/Service">
+        <meta itemprop="serviceType" content="Автоматизация продаж с ИИ">
         <div class="gradient-transition gradient-down"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <div class="hero-badge animate-up">
+                    <div class="hero-badge animate-up" aria-label="Специальное предложение">
                         <i class="fas fa-bolt"></i> ИИ для продаж и контроля отдела
                     </div>
 
-                    <h1 class="animate-up delay-1">
+                    <h1 class="animate-up delay-1" itemprop="name">
                         Автоматизируем рутину продаж с помощью <span class="text-gradient">ИИ</span>
                     </h1>
 
-                    <p class="lead animate-up delay-2">
+                    <p class="lead animate-up delay-2" itemprop="description">
                         Помогаем бизнесу не терять лиды на входе, контролировать продажи и увеличивать выручку. Наши решения работают 24/7 — AI-агент общается с клиентами, AI-Антихаос показывает реальную картину продаж.
                     </p>
 
                     <!-- Кнопки героя -->
                     <div class="hero-buttons animate-up delay-3">
-                        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()">
+                        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()" aria-label="Получить консультацию по автоматизации продаж">
                             <i class="fas fa-comments btn-icon"></i> Получить консультацию
                         </a>
                         <!-- Новая блеклая кнопка канала -->
-                        <a href="https://t.me/talka_lab" class="btn btn-telegram-channel btn-lg" target="_blank" rel="noopener">
+                        <a href="https://t.me/talka_lab" class="btn btn-telegram-channel btn-lg" target="_blank" rel="noopener noreferrer" aria-label="Подписаться на Telegram канал">
                             <i class="fab fa-telegram-plane btn-icon"></i> Наш канал
                         </a>
                     </div>
                 </div>
 
                 <!-- Переписка из фото -->
-                <div class="chat-demo animate-scale delay-2">
+                <div class="chat-demo animate-scale delay-2" aria-label="Пример работы AI-агента">
                     <div class="chat-header">
                         <div class="chat-avatar">TL</div>
                         <div>
@@ -219,13 +333,13 @@
                     <p style="margin-bottom: 20px; color: var(--text-secondary);">
                         Если есть какой-то вопрос, пишите сюда:
                     </p>
-                    <a href="https://t.me/talka_lab_support_bot" class="btn btn-outline" target="_blank" rel="noopener">
+                    <a href="https://t.me/talka_lab_support_bot" class="btn btn-outline" target="_blank" rel="noopener noreferrer" aria-label="Техподдержка в Telegram">
                         <i class="fab fa-telegram btn-icon"></i> Техподдержка в Telegram
                     </a>
                 </div>
 
                 <!-- Статистика -->
-                <div class="hero-stats">
+                <div class="hero-stats" aria-label="Статистика эффективности">
                     <div class="stat animate-up delay-2">
                         <div class="stat-number">24/7</div>
                         <div class="stat-label">Общение с клиентами</div>
@@ -244,12 +358,12 @@
     </section>
 
     <!-- Блок 2: Сравнение -->
-    <section id="comparison" class="comparison">
+    <section id="comparison" class="comparison" aria-labelledby="comparison-title">
         <div class="gradient-transition gradient-up"></div>
         <div class="container">
             <div class="animate-up">
-                <h2 class="section-title">Что происходит сейчас и как будет с TalkaLab</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" id="comparison-title" itemprop="headline">Что происходит сейчас и как будет с TalkaLab</h2>
+                <p class="section-subtitle" itemprop="description">
                     Сравните хаотичную работу отдела продаж с системным контролем на основе ИИ
                 </p>
             </div>
@@ -287,24 +401,24 @@
     </section>
 
     <!-- Блок 3: Чем мы занимаемся -->
-    <section id="services" class="services">
+    <section id="services" class="services" aria-labelledby="services-title">
         <div class="gradient-transition gradient-down"></div>
         <div class="container">
             <div class="animate-up">
-                <h2 class="section-title">Наши решения для вашего бизнеса</h2>
+                <h2 class="section-title" id="services-title">Наши решения для автоматизации вашего бизнеса</h2>
                 <p class="section-subtitle">
                     Мы автоматизируем две ключевые вещи в отделе продаж: общение с клиентами и контроль эффективности
                 </p>
             </div>
 
             <div class="service-content">
-                <div class="service-card animate-up">
+                <div class="service-card animate-up" itemscope itemtype="https://schema.org/Service">
                     <div class="service-icon">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <h3>1. AI-агент (цифровой продавец)</h3>
-                    <p>Цифровой продавец, который принимает все входящие лиды и ведёт диалог как человек 24/7.</p>
-                    <ul class="service-features">
+                    <h3 itemprop="name">1. AI-агент (цифровой продавец)</h3>
+                    <p itemprop="description">Цифровой продавец, который принимает все входящие лиды и ведёт диалог как человек 24/7.</p>
+                    <ul class="service-features" itemprop="featureList">
                         <li>Принимает заявки с сайта, почты, WhatsApp, Telegram</li>
                         <li>Отвечает моментально, ведёт диалог как человек</li>
                         <li>Квалифицирует и передаёт менеджеру готовых клиентов</li>
@@ -312,13 +426,13 @@
                     </ul>
                 </div>
 
-                <div class="service-card animate-up delay-1">
+                <div class="service-card animate-up delay-1" itemscope itemtype="https://schema.org/Service">
                     <div class="service-icon">
                         <i class="fas fa-chart-bar"></i>
                     </div>
-                    <h3>2. AI-Антихаос (контроль продаж)</h3>
-                    <p>Система контроля, которая показывает собственнику реальную картину продаж.</p>
-                    <ul class="service-features">
+                    <h3 itemprop="name">2. AI-Антихаос (контроль продаж)</h3>
+                    <p itemprop="description">Система контроля, которая показывает собственнику реальную картину продаж.</p>
+                    <ul class="service-features" itemprop="featureList">
                         <li>Показывает, где теряются деньги и кто не работает</li>
                         <li>Объясняет, почему падает конверсия</li>
                         <li>Даёт управленческие решения и рекомендации</li>
@@ -335,11 +449,11 @@
     </section>
 
     <!-- Блок: ЦЕНЫ -->
-    <section id="pricing" class="pricing">
+    <section id="pricing" class="pricing" aria-labelledby="pricing-title">
         <div class="gradient-transition gradient-up"></div>
         <div class="container">
             <div class="animate-up">
-                <h2 class="section-title">Стоимость наших решений</h2>
+                <h2 class="section-title" id="pricing-title">Стоимость внедрения автоматизации продаж</h2>
                 <p class="section-subtitle">
                     Начните с пилотного проекта на 5-7 дней, чтобы увидеть реальный результат и цифры
                 </p>
@@ -347,20 +461,21 @@
 
             <div class="pricing-grid">
                 <!-- AI-Антихаос - ПЕРВЫЙ -->
-                <div class="pricing-card animate-up">
+                <div class="pricing-card animate-up" itemscope itemtype="https://schema.org/Offer">
                     <div class="pricing-header">
                         <div class="pricing-icon">
                             <i class="fas fa-chart-bar"></i>
                         </div>
-                        <h3 class="pricing-title">AI-Антихаос</h3>
+                        <h3 class="pricing-title" itemprop="name">AI-Антихаос</h3>
                         <p>Контроль продаж для собственника</p>
                         <div class="pricing-price-container">
-                            <div class="pricing-price">150 000 ₽</div>
+                            <div class="pricing-price" itemprop="price" content="150000">150 000 ₽</div>
+                            <meta itemprop="priceCurrency" content="RUB">
                             <div class="pricing-price-subtitle">за пилот 5-7 дней</div>
                         </div>
                     </div>
                     
-                    <ul class="pricing-features">
+                    <ul class="pricing-features" itemprop="description">
                         <li><i class="fas fa-check"></i> Показывает собственнику реальную картину продаж</li>
                         <li><i class="fas fa-check"></i> Выявляет, где теряются деньги и кто не работает</li>
                         <li><i class="fas fa-check"></i> Объясняет, почему падает конверсия</li>
@@ -373,27 +488,28 @@
                     </div>
                     
                     <div class="pricing-button-container">
-                        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()">
+                        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()" aria-label="Запустить пилотный проект AI-Антихаос">
                             <i class="fas fa-play-circle btn-icon"></i> Запустить пилот
                         </a>
                     </div>
                 </div>
 
                 <!-- AI-агент - ВТОРОЙ, с отметкой "Рекомендуем" -->
-                <div class="pricing-card animate-up delay-1 featured">
+                <div class="pricing-card animate-up delay-1 featured" itemscope itemtype="https://schema.org/Offer">
                     <div class="pricing-header">
                         <div class="pricing-icon">
                             <i class="fas fa-robot"></i>
                         </div>
-                        <h3 class="pricing-title">AI-агент</h3>
+                        <h3 class="pricing-title" itemprop="name">AI-агент</h3>
                         <p>Цифровой продавец 24/7</p>
                         <div class="pricing-price-container">
-                            <div class="pricing-price">200 000 ₽</div>
+                            <div class="pricing-price" itemprop="price" content="200000">200 000 ₽</div>
+                            <meta itemprop="priceCurrency" content="RUB">
                             <div class="pricing-price-subtitle">за пилот 5-7 дней</div>
                         </div>
                     </div>
                     
-                    <ul class="pricing-features">
+                    <ul class="pricing-features" itemprop="description">
                         <li><i class="fas fa-check"></i> Принимает все входящие лиды (сайт, почта, WhatsApp, Telegram)</li>
                         <li><i class="fas fa-check"></i> Отвечает 24/7, ведёт диалог как человек</li>
                         <li><i class="fas fa-check"></i> Квалифицирует и передаёт менеджеру только готовых клиентов</li>
@@ -406,7 +522,7 @@
                     </div>
                     
                     <div class="pricing-button-container">
-                        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()">
+                        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()" aria-label="Запустить пилотный проект AI-агент">
                             <i class="fas fa-play-circle btn-icon"></i> Запустить пилот
                         </a>
                     </div>
@@ -417,7 +533,7 @@
                 <p style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); max-width: 800px; margin: 0 auto 20px;">
                     Не знаете, какое решение выбрать? Мы зададим 5 вопросов и покажем, что решит вашу проблему.
                 </p>
-                <a href="#contact" class="btn btn-outline btn-lg" onclick="openConsultationForm()">
+                <a href="#contact" class="btn btn-outline btn-lg" onclick="openConsultationForm()" aria-label="Помощь в выборе решения по автоматизации">
                     <i class="fas fa-question-circle btn-icon"></i> Помогите выбрать решение
                 </a>
             </div>
@@ -425,11 +541,11 @@
     </section>
 
     <!-- Блок 4: Для кого -->
-    <section id="audience" class="audience">
+    <section id="audience" class="audience" aria-labelledby="audience-title">
         <div class="gradient-transition gradient-up"></div>
         <div class="container">
             <div class="animate-up">
-                <h2 class="section-title">Кому подходят наши решения</h2>
+                <h2 class="section-title" id="audience-title">Кому подходит автоматизация продаж с ИИ</h2>
                 <p class="section-subtitle">
                     Наш подход эффективен для бизнесов, где важен контроль над отделом продаж и прозрачность процессов
                 </p>
@@ -494,23 +610,23 @@
     </section>
 
     <!-- Блок 5: КЕЙСЫ -->
-    <section id="cases" class="cases">
+    <section id="cases" class="cases" aria-labelledby="cases-title">
         <div class="gradient-transition gradient-down"></div>
         <div class="container">
             <div class="animate-up">
-                <h2 class="section-title">Результаты наших клиентов</h2>
+                <h2 class="section-title" id="cases-title">Результаты внедрения автоматизации продаж</h2>
                 <p class="section-subtitle">
                     Посмотрите, как внедрение контроля помогло компаниям увеличить эффективность
                 </p>
             </div>
 
             <div class="cases-grid">
-                <div class="case-card animate-up">
+                <div class="case-card animate-up" itemscope itemtype="https://schema.org/Review">
                     <div class="service-icon">
                         <i class="fas fa-building"></i>
                     </div>
-                    <h3>Агентство недвижимости</h3>
-                    <p>AI-агент показал, что 40% заявок терялись в первый час. После автоматизации обработки — потери снизились до 3%, а конверсия выросла на 45%.</p>
+                    <h3 itemprop="itemReviewed">Агентство недвижимости</h3>
+                    <p itemprop="reviewBody">AI-агент показал, что 40% заявок терялись в первый час. После автоматизации обработки — потери снизились до 3%, а конверсия выросла на 45%.</p>
                     <div class="case-stats">
                         <div class="case-stat">
                             <div class="case-stat-value">-37%</div>
@@ -523,12 +639,12 @@
                     </div>
                 </div>
 
-                <div class="case-card animate-up delay-1">
+                <div class="case-card animate-up delay-1" itemscope itemtype="https://schema.org/Review">
                     <div class="service-icon">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>Медицинская клиника</h3>
-                    <p>AI-Антихаос выявил, что менеджеры тратили 70% времени на "бумажную работу". После оптимизации — время продаж увеличилось на 60%, выручка на 35%.</p>
+                    <h3 itemprop="itemReviewed">Медицинская клиника</h3>
+                    <p itemprop="reviewBody">AI-Антихаос выявил, что менеджеры тратили 70% времени на "бумажную работу". После оптимизации — время продаж увеличилось на 60%, выручка на 35%.</p>
                     <div class="case-stats">
                         <div class="case-stat">
                             <div class="case-stat-value">+60%</div>
@@ -541,12 +657,12 @@
                     </div>
                 </div>
 
-                <div class="case-card animate-up delay-2">
+                <div class="case-card animate-up delay-2" itemscope itemtype="https://schema.org/Review">
                     <div class="service-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>Образовательный проект</h3>
-                    <p>Внедрение обоих решений показало разницу в эффективности менеджеров в 4 раза. После оптимизации — общие продажи выросли на 75% за 2 месяца.</p>
+                    <h3 itemprop="itemReviewed">Образовательный проект</h3>
+                    <p itemprop="reviewBody">Внедрение обоих решений показало разницу в эффективности менеджеров в 4 раза. После оптимизации — общие продажи выросли на 75% за 2 месяца.</p>
                     <div class="case-stats">
                         <div class="case-stat">
                             <div class="case-stat-value">+75%</div>
@@ -561,7 +677,7 @@
             </div>
 
             <div class="text-center animate-up delay-3" style="margin-top: 60px;">
-                <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()">
+                <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()" aria-label="Рассчитать выгоду от автоматизации продаж">
                     <i class="fas fa-chart-line btn-icon"></i> Рассчитать вашу выгоду
                 </a>
             </div>
@@ -569,34 +685,34 @@
     </section>
 
     <!-- Блок 6: FAQ -->
-    <section id="faq" class="faq">
+    <section id="faq" class="faq" aria-labelledby="faq-title">
         <div class="gradient-transition gradient-up"></div>
         <div class="container">
             <div class="faq-container">
-                <h2 class="section-title animate-up">Часто задаваемые вопросы</h2>
+                <h2 class="section-title animate-up" id="faq-title">Часто задаваемые вопросы про автоматизацию продаж</h2>
                 <p class="section-subtitle animate-up delay-1">
                     Отвечаем на самые популярные вопросы о наших решениях
                 </p>
 
                 <div class="faq-list">
                     <!-- Вопрос 1 -->
-                    <div class="faq-item animate-up delay-1">
+                    <div class="faq-item animate-up delay-1" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(1)">
-                            <span>Что такое Talka Lab?</span>
+                            <span itemprop="name">Что такое Talka Lab?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-1">
-                            <p>ИИ для бизнеса, который помогает не терять лиды и контролировать продажи, чтобы вы зарабатывали больше и понимали, куда уходят деньги.</p>
+                        <div class="faq-answer" id="faq-answer-1" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">ИИ для бизнеса, который помогает не терять лиды и контролировать продажи, чтобы вы зарабатывали больше и понимали, куда уходят деньги.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 2 -->
-                    <div class="faq-item animate-up delay-2">
+                    <div class="faq-item animate-up delay-2" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(2)">
-                            <span>Чем отличаются AI-агент и AI-Антихаос?</span>
+                            <span itemprop="name">Чем отличаются AI-агент и AI-Антихаос?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-2">
+                        <div class="faq-answer" id="faq-answer-2" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <ul>
                                 <li><strong>AI-агент</strong> — продаёт вместо менеджеров, ведёт диалог, квалифицирует и передаёт готовых клиентов.</li>
                                 <li><strong>AI-Антихаос</strong> — показывает реальную картину продаж, выявляет потери и даёт рекомендации.</li>
@@ -605,34 +721,34 @@
                     </div>
 
                     <!-- Вопрос 3 -->
-                    <div class="faq-item animate-up delay-3">
+                    <div class="faq-item animate-up delay-3" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(3)">
-                            <span>Нужно ли брать оба продукта сразу?</span>
+                            <span itemprop="name">Нужно ли брать оба продукта сразу?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-3">
-                            <p>Можно по отдельности, но максимальный эффект достигается, когда работают оба решения.</p>
+                        <div class="faq-answer" id="faq-answer-3" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Можно по отдельности, но максимальный эффект достигается, когда работают оба решения.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 4 -->
-                    <div class="faq-item animate-up delay-4">
+                    <div class="faq-item animate-up delay-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(4)">
-                            <span>Что такое пилот и зачем он нужен?</span>
+                            <span itemprop="name">Что такое пилот и зачем он нужен?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-4">
-                            <p>Пилот — 5–7 дней работы системы, чтобы показать реальные потери и результат. Клиент видит цифры, а не догадки и понимает, какой продукт или связка даст рост.</p>
+                        <div class="faq-answer" id="faq-answer-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Пилот — 5–7 дней работы системы, чтобы показать реальные потери и результат. Клиент видит цифры, а не догадки и понимает, какой продукт или связка даст рост.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 5 -->
-                    <div class="faq-item animate-up delay-1">
+                    <div class="faq-item animate-up delay-1" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(5)">
-                            <span>Сколько стоит пилот?</span>
+                            <span itemprop="name">Сколько стоит пилот?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-5">
+                        <div class="faq-answer" id="faq-answer-5" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <ul>
                                 <li><strong>AI-агент:</strong> 200 000 ₽ за 5-7 дней</li>
                                 <li><strong>AI-Антихаос:</strong> 150 000 ₽ за 5-7 дней</li>
@@ -641,12 +757,12 @@
                     </div>
 
                     <!-- Вопрос 6 -->
-                    <div class="faq-item animate-up delay-2">
+                    <div class="faq-item animate-up delay-2" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(6)">
-                            <span>Что входит в автоматизацию и подписку?</span>
+                            <span itemprop="name">Что входит в автоматизацию и подписку?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-6">
+                        <div class="faq-answer" id="faq-answer-6" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <ul>
                                 <li><strong>Автоматизация</strong> — полная система для бизнеса, которая работает вместо людей или управляет ими.</li>
                                 <li><strong>Подписка</strong> — ежемесячное управление результатом: обновления логики, рост конверсии, контроль потерь, отчёты для собственника.</li>
@@ -655,67 +771,67 @@
                     </div>
 
                     <!-- Вопрос 7 -->
-                    <div class="faq-item animate-up delay-3">
+                    <div class="faq-item animate-up delay-3" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(7)">
-                            <span>Как понять, что мне нужно: AI-агент, Антихаос или оба?</span>
+                            <span itemprop="name">Как понять, что мне нужно: AI-агент, Антихаос или оба?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-7">
-                            <p>Мы задаём несколько простых вопросов о ваших продажах. По ответам видно, что решает проблему.</p>
+                        <div class="faq-answer" id="faq-answer-7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Мы задаём несколько простых вопросов о ваших продажах. По ответам видно, что решает проблему.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 8 -->
-                    <div class="faq-item animate-up delay-4">
+                    <div class="faq-item animate-up delay-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(8)">
-                            <span>Насколько сложно внедрить систему?</span>
+                            <span itemprop="name">Насколько сложно внедрить систему?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-8">
-                            <p>Мы делаем пошаговую настройку и интеграцию. Пилот — минимальный этап, чтобы увидеть результат, после чего масштабируем.</p>
+                        <div class="faq-answer" id="faq-answer-8" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Мы делаем пошаговую настройку и интеграцию. Пилот — минимальный этап, чтобы увидеть результат, после чего масштабируем.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 9 -->
-                    <div class="faq-item animate-up delay-1">
+                    <div class="faq-item animate-up delay-1" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(9)">
-                            <span>Сколько времени занимает настройка полной системы?</span>
+                            <span itemprop="name">Сколько времени занимает настройка полной системы?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-9">
-                            <p>От 1 до 4 недель, в зависимости от масштаба бизнеса, каналов и интеграций.</p>
+                        <div class="faq-answer" id="faq-answer-9" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">От 1 до 4 недель, в зависимости от масштаба бизнеса, каналов и интеграций.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 10 -->
-                    <div class="faq-item animate-up delay-2">
+                    <div class="faq-item animate-up delay-2" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(10)">
-                            <span>Можно ли протестировать результат перед покупкой?</span>
+                            <span itemprop="name">Можно ли протестировать результат перед покупкой?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-10">
-                            <p>Да, именно для этого есть пилот — он показывает эффект и цифры, прежде чем вы вкладываетесь в автоматизацию.</p>
+                        <div class="faq-answer" id="faq-answer-10" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Да, именно для этого есть пилот — он показывает эффект и цифры, прежде чем вы вкладываетесь в автоматизацию.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 11 -->
-                    <div class="faq-item animate-up delay-3">
+                    <div class="faq-item animate-up delay-3" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(11)">
-                            <span>Нужно ли быть техническим специалистом для работы с Talka Lab?</span>
+                            <span itemprop="name">Нужно ли быть техническим специалистом для работы с Talka Lab?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-11">
-                            <p>Нет. Система работает сама, а вы получаете управленческий контроль и отчёты.</p>
+                        <div class="faq-answer" id="faq-answer-11" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Нет. Система работает сама, а вы получаете управленческий контроль и отчёты.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 12 -->
-                    <div class="faq-item animate-up delay-4">
+                    <div class="faq-item animate-up delay-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(12)">
-                            <span>Что делает подписка каждый месяц?</span>
+                            <span itemprop="name">Что делает подписка каждый месяц?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-12">
+                        <div class="faq-answer" id="faq-answer-12" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <ul>
                                 <li>Обновляет офферы и логику</li>
                                 <li>Улучшает конверсию лидов</li>
@@ -731,11 +847,11 @@
     </section>
 
     <!-- Блок 7: CTA С КОНСУЛЬТАЦИЕЙ -->
-    <section id="contact" class="cta">
+    <section id="contact" class="cta" aria-labelledby="cta-title">
         <div class="gradient-transition gradient-dark-up"></div>
         <div class="container">
             <div class="cta-content">
-                <h2 class="animate-up">Готовы навести порядок в продажах?</h2>
+                <h2 class="animate-up" id="cta-title">Готовы навести порядок в продажах?</h2>
                 <p class="animate-up delay-1">
                     Заполните короткую форму — мы зададим 5 вопросов, проанализируем ваш отдел продаж и покажем,
                     какое решение даст максимальный рост.
@@ -745,9 +861,9 @@
                     <div class="consultation-icon">
                         <i class="fas fa-comments"></i>
                     </div>
-                    <div class="consultation-title">Получить консультацию</div>
+                    <div class="consultation-title">Получить консультацию по автоматизации</div>
                     <p class="consultation-desc">Оставьте свои контактные данные, и наш специалист свяжется с вами в течение 30 минут для бесплатной консультации</p>
-                    <a href="#consultation-form" class="btn btn-primary btn-lg" onclick="openConsultationForm()">
+                    <a href="#consultation-form" class="btn btn-primary btn-lg" onclick="openConsultationForm()" aria-label="Оставить заявку на консультацию">
                         <i class="fas fa-comments btn-icon"></i> Оставить заявку
                     </a>
                 </div>
@@ -783,10 +899,10 @@
                         ИИ для бизнеса: AI-агент общается с клиентами 24/7, AI-Антихаос показывает реальную картину продаж. Помогаем не терять лиды и контролировать эффективность.
                     </p>
                     <div class="social-links">
-                        <a href="https://t.me/talka_lab" class="social-link" target="_blank" rel="noopener">
+                        <a href="https://t.me/talka_lab" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram канал TalkaLab">
                             <i class="fab fa-telegram"></i>
                         </a>
-                        <a href="https://t.me/talka_lab_support_bot" class="social-link" target="_blank" rel="noopener">
+                        <a href="https://t.me/talka_lab_support_bot" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Техподдержка TalkaLab">
                             <i class="fas fa-headset"></i>
                         </a>
                     </div>
@@ -818,8 +934,8 @@
                 <div class="footer-column">
                     <h3>Контакты</h3>
                     <ul class="footer-links">
-                        <li><a href="https://t.me/talka_lab" target="_blank" rel="noopener">Наш канал: @talka_lab</a></li>
-                        <li><a href="https://t.me/talka_lab_support_bot" target="_blank" rel="noopener">Техподдержка</a></li>
+                        <li><a href="https://t.me/talka_lab" target="_blank" rel="noopener noreferrer">Наш канал: @talka_lab</a></li>
+                        <li><a href="https://t.me/talka_lab_support_bot" target="_blank" rel="noopener noreferrer">Техподдержка</a></li>
                         <li><a href="#contact" onclick="openConsultationForm()">Получить консультацию</a></li>
                     </ul>
                 </div>
@@ -840,8 +956,8 @@
     <div id="consultationModal" class="modal-overlay">
         <div class="modal-content">
             <div class="brief-header">
-                <button class="close-modal" onclick="closeConsultationForm()">×</button>
-                <h3>Получить консультацию</h3>
+                <button class="close-modal" onclick="closeConsultationForm()" aria-label="Закрыть форму">×</button>
+                <h3>Получить консультацию по автоматизации</h3>
                 <p>Заполните форму ниже, и наш специалист свяжется с вами для бесплатной консультации</p>
             </div>
             <div class="brief-body">
@@ -853,13 +969,13 @@
                     <div class="form-group">
                         <label for="clientTelegram">
                             Ваш Telegram username 
-                            <button type="button" class="help-btn" onclick="openInstruction()">
+                            <button type="button" class="help-btn" onclick="openInstruction()" aria-label="Как найти Telegram username">
                                 <i class="fas fa-question-circle"></i> Как найти?
                             </button>
                         </label>
                         <input type="text" id="clientTelegram" name="telegram" required placeholder="@username (например: @ivanov)">
                     </div>
-                    <button type="submit" class="submit-btn">Отправить заявку на консультацию</button>
+                    <button type="submit" class="submit-btn" aria-label="Отправить заявку на консультацию">Отправить заявку на консультацию</button>
                 </form>
             </div>
         </div>
@@ -869,7 +985,7 @@
     <div id="instructionModal" class="instruction-modal">
         <div class="instruction-content">
             <div class="instruction-header">
-                <button class="close-instruction" onclick="closeInstruction()">×</button>
+                <button class="close-instruction" onclick="closeInstruction()" aria-label="Закрыть инструкцию">×</button>
                 <h3>Как найти Telegram username?</h3>
                 <p>Простая инструкция для поиска вашего username в Telegram</p>
             </div>
@@ -925,7 +1041,7 @@
     <div id="privacyModal" class="modal-overlay">
         <div class="modal-content">
             <div class="brief-header">
-                <button class="close-modal" onclick="closePrivacyPolicy()">×</button>
+                <button class="close-modal" onclick="closePrivacyPolicy()" aria-label="Закрыть политику конфиденциальности">×</button>
                 <h3>Политика конфиденциальности</h3>
             </div>
             <div class="brief-body">
@@ -963,7 +1079,7 @@
     <div id="termsModal" class="modal-overlay">
         <div class="modal-content">
             <div class="brief-header">
-                <button class="close-modal" onclick="closeTerms()">×</button>
+                <button class="close-modal" onclick="closeTerms()" aria-label="Закрыть пользовательское соглашение">×</button>
                 <h3>Пользовательское соглашение</h3>
             </div>
             <div class="brief-body">
