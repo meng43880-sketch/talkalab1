@@ -1,1909 +1,906 @@
-/* ===== ГЛОБАЛЬНЫЕ СТИЛИ И ЦВЕТА ===== */
-:root {
-    /* 🟢 Основной зеленый цвет */
-    --primary: #15bc8a;
-    --primary-light: #30d6a5;
-    --primary-dark: #0fa075;
-
-    --dark: #0f172a;
-    --light: #ffffff;
-    --gray-900: #1e293b;
-    --gray-800: #334155;
-    --gray-700: #475569;
-    --gray-600: #64748b;
-    --gray-500: #94a3b8;
-    --gray-400: #cbd5e1;
-    --gray-300: #e2e8f0;
-    --gray-200: #f1f5f9;
-    --gray-100: #f8fafc;
-    --white: #ffffff;
-
-    /* Ссылка на СВЕТЛУЮ версию логотипа */
-    --logo-url: url('https://i.yapx.ru/c0GqR.png');
-    --footer-logo-url: url('https://i.yapx.ru/c0GqR.png');
-
-    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    --gradient-dark: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
-
-    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    --border-radius: 12px;
-    --border-radius-lg: 20px;
-    --border-radius-xl: 28px;
-
-    /* Светлая тема по умолчанию */
-    --bg-primary: var(--white);
-    --bg-secondary: var(--gray-100);
-    --text-primary: var(--gray-800);
-    --text-secondary: var(--gray-700);
-    --card-bg: var(--white);
-    --header-bg: rgba(255, 255, 255, 0.95);
-    --border-color: var(--gray-200);
-}
-
-.dark-theme {
-    --primary: #30d6a5;
-    --primary-light: #4af0c1;
-    --primary-dark: #15bc8a;
-    --bg-primary: var(--dark);
-    --bg-secondary: var(--gray-900);
-    --text-primary: var(--gray-100);
-    --text-secondary: var(--gray-300);
-    --card-bg: var(--gray-900);
-    --header-bg: rgba(15, 23, 42, 0.95);
-    --border-color: var(--gray-800);
-    --white: #0f172a;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-primary);
-    background: var(--bg-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: var(--transition);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-primary);
-}
-
-p, li {
-    color: var(--text-secondary);
-}
-
-.container {
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-section {
-    position: relative;
-    overflow: hidden;
-}
-
-/* ===== ТОГГЛ ТЕМЫ ===== */
-.theme-toggle {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1000;
-    box-shadow: var(--shadow-lg);
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    transition: var(--transition);
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-xl);
-}
-
-.theme-toggle i.fa-sun {
-    display: none;
-}
-
-.dark-theme .theme-toggle i.fa-moon {
-    display: none;
-}
-
-.dark-theme .theme-toggle i.fa-sun {
-    display: block;
-}
-
-/* ===== ГРАДИЕНТНЫЕ ПЕРЕХОДЫ МЕЖДУ СЕКЦИЯМИ ===== */
-.gradient-transition {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.gradient-up {
-    background: linear-gradient(to bottom, var(--bg-secondary), transparent);
-}
-
-.gradient-down {
-    background: linear-gradient(to top, var(--bg-secondary), transparent);
-}
-
-.gradient-dark-up {
-    background: linear-gradient(to bottom, var(--dark), transparent);
-}
-
-.gradient-dark-down {
-    background: linear-gradient(to top, var(--dark), transparent);
-}
-
-/* ===== ТИПОГРАФИЯ С АНИМАЦИЯМИ ===== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.animate-up {
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-.animate-left {
-    opacity: 0;
-    animation: fadeInLeft 0.8s ease forwards;
-}
-
-.animate-right {
-    opacity: 0;
-    animation: fadeInRight 0.8s ease forwards;
-}
-
-.animate-scale {
-    opacity: 0;
-    animation: scaleIn 0.6s ease forwards;
-}
-
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.delay-4 { animation-delay: 0.8s; }
-
-h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    margin-bottom: 1.5rem;
-    font-weight: 800;
-    line-height: 1.2;
-}
-
-h2 {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    margin-bottom: 1.25rem;
-    line-height: 1.2;
-}
-
-h3 {
-    font-size: clamp(1.5rem, 3vw, 1.75rem);
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    line-height: 1.6;
-}
-
-p {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-}
-
-.text-gradient {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.lead {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    font-weight: 500;
-    line-height: 1.6;
-}
-
-/* ===== ШАПКА ===== */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: var(--header-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 1000;
-    padding: 20px 0;
-    transition: var(--transition);
-}
-
-header.scrolled {
-    background: var(--header-bg);
-    box-shadow: var(--shadow-lg);
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* БЛОК ЛОГОТИПА - СЛЕВА */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    transition: var(--transition);
-    order: 1;
-}
-
-.logo-icon {
-    width: 42px;
-    height: 42px;
-    background: var(--logo-url) center/contain no-repeat;
-    flex-shrink: 0;
-    transition: background 0.3s ease;
-}
-
-.logo-text {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    letter-spacing: -0.5px;
-    font-family: 'Inter', sans-serif;
-}
-
-.logo:hover {
-    transform: translateY(-1px);
-    opacity: 0.9;
-}
-
-/* НАВИГАЦИЯ - ФИКСИРОВАННЫЕ ЦВЕТА КАК В СВЕТЛОЙ ТЕМЕ */
-.nav {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    order: 2;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #334155;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: var(--transition);
-    position: relative;
-    padding: 8px 0;
-}
-
-/* В темной теме меню остается как в светлой */
-.dark-theme .nav-link {
-    color: #334155;
-}
-
-.nav-link:hover {
-    color: var(--primary);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gradient-primary);
-    transition: var(--transition);
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-/* ===== МОБИЛЬНОЕ МЕНЮ ===== */
-.mobile-menu-btn {
-    display: none;
-    background: transparent;
-    border: none;
-    width: 40px;
-    height: 40px;
-    position: relative;
-    cursor: pointer;
-    z-index: 1001;
-    order: 3;
-}
-
-.mobile-menu-btn span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--text-primary);
-    position: absolute;
-    left: 8px;
-    transition: var(--transition);
-}
-
-.mobile-menu-btn.active span {
-    background: white;
-}
-
-.mobile-menu-btn span:nth-child(1) { top: 14px; }
-.mobile-menu-btn span:nth-child(2) { top: 19px; }
-.mobile-menu-btn span:nth-child(3) { top: 24px; }
-
-.mobile-menu-btn.active span:nth-child(1) {
-    transform: rotate(45deg);
-    top: 19px;
-}
-
-.mobile-menu-btn.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-btn.active span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 19px;
-}
-
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    max-width: 320px;
-    height: 100vh;
-    background: var(--dark);
-    z-index: 1000;
-    transition: var(--transition-slow);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 100px 30px 30px;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
-}
-
-.mobile-menu.active {
-    right: 0;
-}
-
-.mobile-menu .nav-link {
-    color: white;
-    font-size: 1.15rem;
-    opacity: 0;
-    transform: translateX(30px);
-    transition: var(--transition-slow);
-    width: 100%;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.mobile-menu.active .nav-link {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.mobile-menu .btn {
-    opacity: 0;
-    transform: translateX(30px);
-    transition: var(--transition-slow);
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
-}
-
-.mobile-menu.active .btn {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.mobile-menu.active .nav-link:nth-child(1) { transition-delay: 0.1s; }
-.mobile-menu.active .nav-link:nth-child(2) { transition-delay: 0.2s; }
-.mobile-menu.active .nav-link:nth-child(3) { transition-delay: 0.3s; }
-.mobile-menu.active .nav-link:nth-child(4) { transition-delay: 0.4s; }
-.mobile-menu.active .nav-link:nth-child(5) { transition-delay: 0.5s; }
-.mobile-menu.active .nav-link:nth-child(6) { transition-delay: 0.6s; }
-.mobile-menu.active .btn:nth-child(7) { transition-delay: 0.7s; }
-.mobile-menu.active .btn:nth-child(8) { transition-delay: 0.8s; }
-
-/* ===== КНОПКИ ===== */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 32px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: var(--transition);
-    border: none;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    gap: 10px;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary);
-    z-index: -1;
-    transition: var(--transition);
-    opacity: 0;
-}
-
-.btn-primary {
-    background: var(--gradient-primary);
-    color: var(--white);
-    box-shadow: var(--shadow);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-.btn-telegram-channel {
-    background: rgba(21, 188, 138, 0.1);
-    color: var(--primary);
-    border: 1px solid rgba(21, 188, 138, 0.2);
-}
-
-.btn-telegram-channel:hover {
-    background: rgba(21, 188, 138, 0.15);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-}
-
-.btn-outline {
-    background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-}
-
-.btn-outline:hover {
-    background: var(--primary);
-    color: white;
-}
-
-.btn-lg {
-    padding: 18px 48px;
-    font-size: 1.125rem;
-    border-radius: var(--border-radius-lg);
-}
-
-.btn-icon {
-    font-size: 1.2rem;
-}
-
-/* ===== БЛОК 1: ГЕРОЙ ===== */
-.hero {
-    padding: 180px 0 120px;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 50%, var(--bg-secondary) 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(circle at 20% 80%, rgba(21, 188, 138, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(21, 188, 138, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.hero-text {
-    text-align: left;
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(21, 188, 138, 0.1);
-    color: var(--primary);
-    padding: 10px 24px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 32px;
-    border: 1px solid rgba(21, 188, 138, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-/* Стили для переписки */
-.chat-demo {
-    background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    padding: 30px;
-    box-shadow: var(--shadow-xl);
-    border: 1px solid var(--border-color);
-    text-align: left;
-}
-
-.chat-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.chat-avatar {
-    width: 40px;
-    height: 40px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-}
-
-.chat-name {
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.chat-status {
-    color: var(--primary);
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.chat-messages {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.message {
-    max-width: 85%;
-    padding: 16px;
-    border-radius: 18px;
-    position: relative;
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
-.message-incoming {
-    background: var(--bg-secondary);
-    border-bottom-left-radius: 4px;
-    align-self: flex-start;
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
-
-.message-outgoing {
-    background: var(--primary);
-    color: white;
-    border-bottom-right-radius: 4px;
-    align-self: flex-end;
-    text-align: right;
-}
-
-.message-time {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    margin-top: 4px;
-}
-
-.typing-indicator {
-    display: flex;
-    gap: 4px;
-    padding: 12px 16px;
-    background: var(--bg-secondary);
-    border-radius: 18px;
-    border-bottom-left-radius: 4px;
-    align-self: flex-start;
-    width: 60px;
-    border: 1px solid var(--border-color);
-}
-
-.typing-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--gray-500);
-    border-radius: 50%;
-    animation: typing 1.4s infinite ease-in-out;
-}
-
-.typing-dot:nth-child(1) { animation-delay: -0.32s; }
-.typing-dot:nth-child(2) { animation-delay: -0.16s; }
-
-@keyframes typing {
-    0%, 60%, 100% { transform: translateY(0); }
-    30% { transform: translateY(-4px); }
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-.hero-support-btn {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid var(--border-color);
-    grid-column: 1 / -1;
-}
-
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    margin-top: 60px;
-    flex-wrap: wrap;
-    grid-column: 1 / -1;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    line-height: 1;
-    margin-bottom: 8px;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* ===== БЛОК 2: СРАВНЕНИЕ/ЭТАПЫ ===== */
-.comparison {
-    padding: 120px 0;
-    background: var(--bg-primary);
-    position: relative;
-}
-
-.comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    margin-top: 60px;
-}
-
-.comparison-column {
-    background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    padding: 40px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-}
-
-.comparison-bad {
-    border-top: 4px solid #ef4444;
-}
-
-.comparison-good {
-    border-top: 4px solid var(--primary);
-}
-
-.comparison-column h3 {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 30px;
-}
-
-.comparison-list {
-    list-style: none;
-}
-
-.comparison-list li {
-    padding: 16px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 1.1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.comparison-list li:last-child {
-    border-bottom: none;
-}
-
-.comparison-list.bad li i {
-    color: #ef4444;
-}
-
-.comparison-list.good li i {
-    color: var(--primary);
-}
-
-/* ===== БЛОК 3: ЧЕМ МЫ ЗАНИМАЕМСЯ ===== */
-.services {
-    padding: 120px 0;
-    background: var(--bg-secondary);
-    position: relative;
-}
-
-.service-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 60px;
-    margin-top: 60px;
-    align-items: start;
-}
-
-.service-card {
-    background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    padding: 40px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    height: 100%;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--primary);
-}
-
-.service-icon {
-    width: 64px;
-    height: 64px;
-    background: rgba(21, 188, 138, 0.1);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    color: var(--primary);
-    font-size: 1.5rem;
-}
-
-.service-features {
-    list-style: none;
-    margin-top: 24px;
-}
-
-.service-features li {
-    padding: 12px 0;
-    color: var(--text-secondary);
-    position: relative;
-    padding-left: 36px;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.service-features li:last-child {
-    border-bottom: none;
-}
-
-.service-features li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-/* ===== БЛОК 4: ДЛЯ КОГО ===== */
-.audience {
-    padding: 120px 0;
-    background: var(--bg-secondary);
-    position: relative;
-}
-
-.audience-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 60px;
-}
-
-.audience-card {
-    background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    padding: 40px 32px;
-    text-align: center;
-    transition: var(--transition);
-    border: 2px solid var(--border-color);
-    box-shadow: var(--shadow);
-}
-
-.audience-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-}
-
-.audience-icon {
-    width: 64px;
-    height: 64px;
-    background: var(--gradient-primary);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 24px;
-    color: var(--white);
-    font-size: 1.5rem;
-}
-
-/* ===== БЛОК 5: КЕЙСЫ ===== */
-.cases {
-    padding: 120px 0;
-    background: var(--bg-primary);
-    position: relative;
-}
-
-.cases-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-    margin-top: 60px;
-}
-
-.case-card {
-    background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    padding: 40px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
-}
-
-.case-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.case-stats {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 1px solid var(--border-color);
-}
-
-.case-stat {
-    display: flex;
-    flex-direction: column;
-}
-
-.case-stat-value {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--primary);
-    line-height: 1;
-}
-
-.case-stat-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-top: 5px;
-}
-
-/* ===== БЛОК 6: FAQ ===== */
-.faq {
-    padding: 120px 0;
-    background: var(--bg-secondary);
-    position: relative;
-}
-
-.faq-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    margin-bottom: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.faq-item:hover {
-    box-shadow: var(--shadow);
-    border-color: var(--primary);
-}
-
-.faq-question {
-    padding: 24px 32px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: var(--transition);
-}
-
-.faq-question:hover {
-    color: var(--primary);
-}
-
-.faq-question.active {
-    color: var(--primary);
-    background: var(--bg-secondary);
-}
-
-.faq-icon {
-    transition: var(--transition);
-    font-size: 1.2rem;
-    color: var(--gray-500);
-}
-
-.faq-question.active .faq-icon {
-    transform: rotate(45deg);
-    color: var(--primary);
-}
-
-.faq-answer {
-    padding: 0 32px;
-    max-height: 0;
-    overflow: hidden;
-    transition: var(--transition-slow);
-}
-
-.faq-answer.active {
-    padding: 0 32px 24px;
-    max-height: 1000px;
-}
-
-.faq-answer p {
-    margin-bottom: 12px;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.faq-answer ul {
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
-
-.faq-answer li {
-    margin-bottom: 8px;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-/* ===== БЛОК 7: CTA ===== */
-.cta {
-    padding: 120px 0;
-    background: var(--gradient-dark);
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(circle at 30% 30%, rgba(21, 188, 138, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(21, 188, 138, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.cta-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-}
-
-.cta h2 {
-    color: white;
-    margin-bottom: 20px;
-}
-
-.cta p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.25rem;
-    margin-bottom: 40px;
-}
-
-.consultation-widget {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: var(--border-radius-xl);
-    padding: 48px;
-    max-width: 500px;
-    margin: 0 auto 40px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.consultation-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 24px;
-    font-size: 2rem;
-    color: white;
-}
-
-.consultation-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 16px;
-}
-
-.consultation-desc {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 32px;
-    line-height: 1.6;
-}
-
-/* ===== ПОДВАЛ САЙТА ===== */
-footer {
-    background: var(--dark);
-    color: white;
-    padding: 80px 0 40px;
-    position: relative;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.footer-column h3 {
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.footer-logo .logo-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--footer-logo-url) center/contain no-repeat;
-    transition: background 0.3s ease;
-}
-
-.footer-logo .logo-text {
-    color: white;
-    font-size: 1.4rem;
-}
-
-.footer-links {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: var(--transition);
-    font-size: 0.95rem;
-}
-
-.footer-links a:hover {
-    color: white;
-    padding-left: 5px;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: white;
-    text-decoration: none;
-    transition: var(--transition);
-    font-size: 1.1rem;
-}
-
-.social-link:hover {
-    background: var(--primary);
-    transform: translateY(-3px);
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-}
-
-.copyright-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.copyright-links a {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    transition: var(--transition);
-    font-size: 0.85rem;
-}
-
-.copyright-links a:hover {
-    color: white;
-}
-
-/* ===== МОДАЛЬНОЕ ОКНО ФОРМЫ ===== */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.modal-overlay.active {
-    display: flex;
-}
-
-.modal-content {
-    background: white;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 500px;
-    position: relative;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-.brief-header {
-    background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 100%);
-    color: white;
-    padding: 30px 40px;
-    border-radius: 20px 20px 0 0;
-    position: relative;
-}
-
-.brief-header::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 40px;
-    width: 60px;
-    height: 4px;
-    background: #4af0c1;
-    border-radius: 2px;
-}
-
-.brief-header h3 {
-    color: white;
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
-
-.brief-header p {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0;
-    font-size: 1rem;
-}
-
-.brief-body {
-    padding: 50px 40px 40px;
-}
-
-.brief-form .form-group {
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.brief-form label {
-    display: block;
-    margin-bottom: 8px;
-    color: #333;
-    font-weight: 500;
-    font-size: 0.95rem;
-}
-
-.brief-form input {
-    width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: var(--transition);
-    box-sizing: border-box;
-}
-
-.brief-form input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(21, 188, 138, 0.1);
-}
-
-.brief-form .submit-btn {
-    background: var(--gradient-primary);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 16px;
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-top: 10px;
-}
-
-.brief-form .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(21, 188, 138, 0.2);
-}
-
-.close-modal {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: var(--transition);
-    z-index: 2;
-}
-
-.close-modal:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.help-btn {
-    background: transparent;
-    border: none;
-    color: var(--primary);
-    font-size: 0.8rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    margin-left: 8px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    transition: var(--transition);
-}
-
-.help-btn:hover {
-    background: rgba(21, 188, 138, 0.1);
-}
-
-/* Модальное окно инструкции */
-.instruction-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 3000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.instruction-modal.active {
-    display: flex;
-}
-
-.instruction-content {
-    background: white;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 500px;
-    position: relative;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    max-height: 85vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.instruction-header {
-    background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 100%);
-    color: white;
-    padding: 25px 30px;
-    border-radius: 20px 20px 0 0;
-    position: relative;
-    flex-shrink: 0;
-}
-
-.instruction-header h3 {
-    color: white;
-    margin-bottom: 5px;
-    font-size: 1.3rem;
-    padding-right: 40px;
-}
-
-.instruction-header p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 0;
-    font-size: 0.9rem;
-    padding-right: 40px;
-}
-
-.instruction-body {
-    padding: 30px;
-    overflow-y: auto;
-    flex-grow: 1;
-}
-
-.instruction-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.instruction-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-}
-
-.step-number {
-    background: var(--primary);
-    color: white;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    flex-shrink: 0;
-    margin-top: 5px;
-}
-
-.step-content h4 {
-    margin-bottom: 10px;
-    color: #333;
-    font-size: 1.1rem;
-}
-
-.step-content p {
-    color: #666;
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-.close-instruction {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: var(--transition);
-    z-index: 2;
-}
-
-.close-instruction:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* ===== ПРОГРЕСС-БАР СКРОЛЛА ===== */
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: var(--gradient-primary);
-    z-index: 1001;
-    transition: width 0.3s ease;
-}
-
-/* ===== УВЕДОМЛЕНИЕ ОБ УСПЕШНОЙ ОТПРАВКЕ ===== */
-.success-notification {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    background: var(--primary);
-    color: white;
-    padding: 20px 25px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-xl);
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    max-width: 400px;
-    transform: translateX(120%);
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.success-notification.show {
-    transform: translateX(0);
-}
-
-.success-icon {
-    font-size: 1.8rem;
-}
-
-.success-text h4 {
-    color: white;
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.success-text p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 0;
-    font-size: 0.9rem;
-}
-
-.close-notification {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: var(--transition);
-    margin-left: auto;
-}
-
-.close-notification:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* ===== АДАПТИВНОСТЬ ===== */
-@media (max-width: 1200px) {
-    .container {
-        padding: 0 40px;
-    }
-}
-
-@media (max-width: 992px) {
-    section {
-        padding: 80px 0;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-    }
-
-    .hero-content {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-stats {
-        gap: 32px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .service-content {
-        grid-template-columns: 1fr;
-    }
-
-    .comparison-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .audience-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-
-    .success-notification {
-        top: 80px;
-        left: 20px;
-        right: 20px;
-        max-width: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 0 24px;
-    }
-
-    .hero {
-        padding: 140px 0 80px;
-    }
-
-    .stat-number {
-        font-size: 2rem;
-    }
-
-    .consultation-widget {
-        padding: 32px 24px;
-    }
-
-    .faq-question {
-        padding: 20px 24px;
-        font-size: 1rem;
-    }
-
-    .faq-answer {
-        padding: 0 24px;
-    }
-
-    .faq-answer.active {
-        padding: 0 24px 24px;
-    }
-
-    .chat-demo {
-        padding: 20px;
-    }
-
-    .comparison-column {
-        padding: 30px 24px;
-    }
-
-    .service-card,
-    .audience-card,
-    .case-card {
-        padding: 32px 24px;
-    }
-
-    .theme-toggle {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-    }
-
-    .modal-content {
-        max-width: 100%;
-    }
-
-    .brief-header,
-    .brief-body {
-        padding: 25px 20px;
-    }
-
-    .instruction-content {
-        max-width: 100%;
-    }
-
-    .instruction-body {
-        padding: 20px;
-    }
-
-    .instruction-step {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .step-number {
-        align-self: flex-start;
-    }
-
-    .close-modal {
-        top: 15px;
-        right: 15px;
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-    }
-
-    .brief-header h3 {
-        padding-right: 40px;
-        font-size: 1.3rem;
-    }
-
-    .brief-header p {
-        padding-right: 40px;
-        font-size: 0.9rem;
-    }
-
-    .close-instruction {
-        top: 15px;
-        right: 15px;
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-    }
-
-    .instruction-header h3 {
-        padding-right: 40px;
-    }
-
-    .instruction-header p {
-        padding-right: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    .btn {
-        padding: 12px 24px;
-        font-size: 0.95rem;
-    }
-
-    .btn-lg {
-        padding: 16px 32px;
-    }
-
-    .hero-badge {
-        padding: 8px 20px;
-        font-size: 0.9rem;
-    }
-
-    .hero-buttons {
-        gap: 15px;
-    }
-
-    .container {
-        padding: 0 16px;
-    }
-
-    .logo-text {
-        font-size: 1.3rem;
-    }
-
-    .logo-icon {
-        width: 35px;
-        height: 35px;
-    }
-
-    .audience-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .close-modal {
-        top: 12px;
-        right: 12px;
-    }
-
-    .brief-header h3 {
-        padding-right: 35px;
-        font-size: 1.2rem;
-    }
-
-    .close-instruction {
-        top: 12px;
-        right: 12px;
-    }
-}
-
-/* ===== ФИКС ДЛЯ ЛОГОТИПА НА МОБИЛЬНЫХ УСТРОЙСТВАХ ===== */
-@media (max-width: 992px) {
-    .logo {
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
+<!DOCTYPE html>
+<html lang="ru" prefix="og: https://ogp.me/ns#" itemscope itemtype="https://schema.org/WebSite">
+<head>
+    <!-- Базовые мета-теги -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    .logo-text {
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
+    <!-- Основные SEO теги -->
+    <title>TalkaLab — AI-системы генерации встреч для B2B | Автоматизация outbound продаж</title>
+    <meta name="description" content="TalkaLab строит и запускает AI-системы генерации встреч для B2B-компаний. Стратегия, инфраструктура, мультиканальный outbound, AI-персонализация. Предсказуемый поток встреч с целевыми компаниями.">
+    <meta name="keywords" content="AI генерация встреч, B2B outbound, автоматизация продаж B2B, AI персонализация, LinkedIn автоматизация, email прогрев, мультиканальные цепочки, квалификация лидов, ICP, оффер для B2B">
     
-    .logo-icon {
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
+    <!-- Канонический URL -->
+    <link rel="canonical" href="https://talkalab.ru/" />
+    
+    <!-- Дополнительные SEO мета-теги -->
+    <meta name="author" content="TalkaLab">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#15bc8a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Open Graph для соцсетей -->
+    <meta property="og:title" content="TalkaLab — AI для автоматизации и контроля отдела продаж">
+    <meta property="og:description" content="TalkaLab — ИИ для автоматизации продаж и контроля отдела. Отдел продаж с TalkaLab. AI-агент общается с клиентами 24/7. AI-Антихаос показывает реальную картину.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://talkalab.ru/">
+    <meta property="og:image" content="images/og-preview.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="TalkaLab">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TalkaLab — AI для автоматизации и контроля отдела продаж">
+    <meta name="twitter:description" content="TalkaLab — ИИ для автоматизации продаж и контроля отдела. AI-агент 24/7, AI-Антихаос показывает реальную картину.">
+    <meta name="twitter:image" content="images/og-preview.jpg">
+    <meta name="twitter:site" content="@talkalab">
+    
+    <!-- Фавиконки -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="msapplication-TileColor" content="#15bc8a">
+    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Стили -->
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- Schema.org структурированные данные -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://talkalab.ru/#organization",
+        "name": "TalkaLab",
+        "description": "ИИ для автоматизации продаж и контроля отдела. AI-агент 24/7, AI-Антихаос показывает реальную картину.",
+        "url": "https://talkalab.ru/",
+        "logo": "https://talkalab.ru/android-chrome-512x512.png",
+        "sameAs": [
+            "https://t.me/talka_lab"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "url": "https://t.me/talka_lab",
+            "availableLanguage": ["Russian"]
+        }
     }
-}
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "ИИ для автоматизации продаж и контроля отдела",
+        "provider": {
+            "@type": "Organization",
+            "name": "TalkaLab"
+        },
+        "description": "AI-агент общается с клиентами 24/7. AI-Антихаос показывает реальную картину продаж.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB",
+            "description": "Индивидуальная стоимость под каждый проект"
+        }
+    }
+    </script>
+    
+    <!-- PWA манифест -->
+    <link rel="manifest" href="./manifest.json">
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+    <!-- Уведомление об успешной отправке -->
+    <div class="success-notification" id="successNotification">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="success-text">
+            <h4>Заявка успешно доставлена!</h4>
+            <p>Мы свяжемся с вами в ближайшее время</p>
+        </div>
+        <button class="close-notification" onclick="closeNotification()">×</button>
+    </div>
 
-@media (max-width: 768px) {
-    .logo-text {
-        font-size: 1.2rem !important;
-    }
-    
-    .logo-icon {
-        width: 35px !important;
-        height: 35px !important;
-    }
-}
+    <!-- Прогресс-бар скролла -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-@media (max-width: 480px) {
-    .logo-text {
-        font-size: 1rem !important;
-    }
-    
-    .logo-icon {
-        width: 30px !important;
-        height: 30px !important;
-    }
-}
+    <!-- Кнопка переключения темы -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Шапка -->
+    <header id="header">
+        <div class="container header-container">
+            <!-- Логотип СЛЕВА -->
+            <a href="./" class="logo" itemprop="url" aria-label="TalkaLab - Главная страница">
+                <div class="logo-icon" itemprop="logo"></div>
+                <div class="logo-text" itemprop="name">TalkaLab</div>
+            </a>
+
+            <nav class="nav" aria-label="Основная навигация" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                <a href="#services" class="nav-link" itemprop="url"><span itemprop="name">Что входит</span></a>
+                <a href="#process" class="nav-link" itemprop="url"><span itemprop="name">Этапы</span></a>
+                <a href="#audience" class="nav-link" itemprop="url"><span itemprop="name">Для кого</span></a>
+                <a href="#cases" class="nav-link" itemprop="url"><span itemprop="name">Кейсы</span></a>
+                <a href="#faq" class="nav-link" itemprop="url"><span itemprop="name">FAQ</span></a>
+                <!-- Кнопка Telegram канала -->
+                <a href="https://t.me/talka_lab" class="btn btn-telegram-channel" target="_blank" rel="noopener noreferrer" aria-label="Наш Telegram канал">
+                    <i class="fab fa-telegram btn-icon"></i> Канал
+                </a>
+                <!-- Основная кнопка консультации -->
+                <a href="#contact" class="btn btn-primary" onclick="openConsultationForm()" aria-label="Обсудить генерацию встреч">
+                    <i class="fas fa-calendar-check btn-icon"></i> Обсудить проект
+                </a>
+            </nav>
+
+            <!-- Кнопка гамбургера для мобильного меню -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="./" class="nav-link">Главный экран</a>
+        <a href="#services" class="nav-link">Что входит</a>
+        <a href="#process" class="nav-link">Этапы</a>
+        <a href="#audience" class="nav-link">Для кого</a>
+        <a href="#cases" class="nav-link">Кейсы</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <!-- Кнопка канала в меню -->
+        <a href="https://t.me/talka_lab" class="btn btn-telegram-channel" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-telegram btn-icon"></i> Наш канал
+        </a>
+        <!-- Основная кнопка консультации в меню -->
+        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()">
+            <i class="fas fa-calendar-check btn-icon"></i> Обсудить проект
+        </a>
+    </div>
+
+    <!-- Блок 1: Герой -->
+    <section class="hero" itemprop="mainEntity" itemscope itemtype="https://schema.org/Service">
+        <meta itemprop="serviceType" content="AI-системы генерации встреч для B2B">
+        <div class="gradient-transition gradient-down"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge animate-up" aria-label="Специализация">
+                        <i class="fas fa-bolt"></i> AI-системы генерации встреч для B2B
+                    </div>
+
+                    <h1 class="animate-up delay-1" itemprop="name">
+                        Строим и запускаем <span class="text-gradient">AI-системы</span> генерации встреч для B2B-компаний
+                    </h1>
+
+                    <p class="lead animate-up delay-2" itemprop="description">
+                        Стратегия, инфраструктура, мультиканальный outbound и AI-персонализация. 
+                        Результат — предсказуемый поток встреч с целевыми компаниями.
+                    </p>
+
+                    <!-- Кнопки героя -->
+                    <div class="hero-buttons animate-up delay-3">
+                        <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()" aria-label="Обсудить проект">
+                            <i class="fas fa-calendar-check btn-icon"></i> Обсудить проект
+                        </a>
+                        <a href="https://t.me/talka_lab" class="btn btn-telegram-channel btn-lg" target="_blank" rel="noopener noreferrer" aria-label="Наш Telegram канал">
+                            <i class="fab fa-telegram-plane btn-icon"></i> Наш канал
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Переписка из фото -->
+                <div class="chat-demo animate-scale delay-2" aria-label="Пример коммуникации">
+                    <div class="chat-header">
+                        <div class="chat-avatar">TL</div>
+                        <div>
+                            <div class="chat-name">TalkaLab AI</div>
+                            <div class="chat-status"><i class="fas fa-circle" style="font-size: 0.6rem;"></i> AI-персонализация</div>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages">
+                        <div class="message message-outgoing">
+                            Алексей, привет! Заметил, что ваша компания активно растет в сегменте автоматизации. 
+                            <div class="message-time">10:30</div>
+                        </div>
+
+                        <div class="message message-incoming">
+                            Да, верно. В чем вопрос?
+                            <div class="message-time">10:32</div>
+                        </div>
+
+                        <div class="message message-outgoing">
+                            Мы помогаем B2B-компаниям удваивать количество встреч с ЛПР. 
+                            Есть 5 минут на созвон на этой неделе?
+                            <div class="message-time">10:33</div>
+                        </div>
+
+                        <div class="message message-incoming">
+                            Давай в четверг в 11:00
+                            <div class="message-time">10:34</div>
+                        </div>
+
+                        <div class="typing-indicator">
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                            <div class="typing-dot"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка поддержки -->
+                <div class="hero-support-btn animate-up delay-4">
+                    <p style="margin-bottom: 20px; color: var(--text-secondary);">
+                        Есть вопросы? Пишите в поддержку:
+                    </p>
+                    <a href="https://t.me/talka_lab_support_bot" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-telegram btn-icon"></i> Техподдержка в Telegram
+                    </a>
+                </div>
+
+                <!-- Статистика -->
+                <div class="hero-stats" aria-label="Ключевые показатели">
+                    <div class="stat animate-up delay-2">
+                        <div class="stat-number">2x</div>
+                        <div class="stat-label">Рост встреч</div>
+                    </div>
+                    <div class="stat animate-up delay-3">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">AI-персонализация</div>
+                    </div>
+                    <div class="stat animate-up delay-4">
+                        <div class="stat-number">B2B</div>
+                        <div class="stat-label">Только целевые</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок: Что входит в услугу -->
+    <section id="services" class="services" aria-labelledby="services-title">
+        <div class="gradient-transition gradient-up"></div>
+        <div class="container">
+            <div class="animate-up">
+                <h2 class="section-title" id="services-title">Что входит в услугу</h2>
+                <p class="section-subtitle">
+                    Комплексный подход к генерации встреч: от стратегии до масштабирования
+                </p>
+            </div>
+
+            <div class="service-content">
+                <div class="service-card animate-up">
+                    <div class="service-icon">
+                        <i class="fas fa-chess-board"></i>
+                    </div>
+                    <h3>1. Стратегия</h3>
+                    <ul class="service-features">
+                        <li>Определяем ICP и сегменты</li>
+                        <li>Формируем оффер</li>
+                        <li>Проектируем цепочки касаний</li>
+                        <li>Фиксируем KPI</li>
+                    </ul>
+                </div>
+
+                <div class="service-card animate-up delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>2. Инфраструктура</h3>
+                    <ul class="service-features">
+                        <li>Email-система и прогрев</li>
+                        <li>Автоматизация LinkedIn</li>
+                        <li>Интеграция с CRM</li>
+                        <li>AI-персонализация и аналитика</li>
+                    </ul>
+                </div>
+
+                <div class="service-card animate-up delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>3. Запуск outbound</h3>
+                    <ul class="service-features">
+                        <li>Поиск компаний и контактов</li>
+                        <li>Персонализированные сообщения</li>
+                        <li>Мультиканальные цепочки</li>
+                        <li>Квалификация лидов и передача в продажи</li>
+                    </ul>
+                </div>
+
+                <div class="service-card animate-up delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>4. Рост и масштаб</h3>
+                    <ul class="service-features">
+                        <li>Анализ конверсий</li>
+                        <li>Тест гипотез и офферов</li>
+                        <li>Оптимизация сообщений</li>
+                        <li>Масштабирование pipeline</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок: Этапы -->
+    <section id="process" class="comparison" aria-labelledby="process-title">
+        <div class="gradient-transition gradient-down"></div>
+        <div class="container">
+            <div class="animate-up">
+                <h2 class="section-title" id="process-title">Как мы строим систему генерации встреч</h2>
+                <p class="section-subtitle">
+                    Прозрачный процесс от анализа до предсказуемого потока встреч
+                </p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-column comparison-bad animate-up">
+                    <h3><i class="fas fa-times-circle" style="color: #ef4444;"></i> Типичный подход</h3>
+                    <ul class="comparison-list bad">
+                        <li><i class="fas fa-times"></i> Хаотичный поиск клиентов</li>
+                        <li><i class="fas fa-times"></i> Шаблонные письма без отклика</li>
+                        <li><i class="fas fa-times"></i> Нет системы и KPI</li>
+                        <li><i class="fas fa-times"></i> Сливаем бюджеты на "авось"</li>
+                        <li><i class="fas fa-times"></i> Невозможно масштабировать</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-column comparison-good animate-up delay-1">
+                    <h3><i class="fas fa-check-circle" style="color: var(--primary);"></i> Система от TalkaLab</h3>
+                    <ul class="comparison-list good">
+                        <li><i class="fas fa-check"></i> Четкий ICP и сегментация</li>
+                        <li><i class="fas fa-check"></i> AI-персонализация каждого касания</li>
+                        <li><i class="fas fa-check"></i> Мультиканальные цепочки (email + LinkedIn)</li>
+                        <li><i class="fas fa-check"></i> Прозрачная аналитика и KPI</li>
+                        <li><i class="fas fa-check"></i> Масштабируемый pipeline</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center animate-up delay-2" style="margin-top: 60px;">
+                <p style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); max-width: 800px; margin: 0 auto;">
+                    Результат: предсказуемый поток встреч с целевыми компаниями.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 4: Для кого -->
+    <section id="audience" class="audience" aria-labelledby="audience-title">
+        <div class="gradient-transition gradient-up"></div>
+        <div class="container">
+            <div class="animate-up">
+                <h2 class="section-title" id="audience-title">Кому подходит наша система</h2>
+                <p class="section-subtitle">
+                    B2B-компании, которые хотят предсказуемый поток встреч с ЛПР
+                </p>
+            </div>
+
+            <div class="audience-grid">
+                <div class="audience-card animate-up">
+                    <div class="audience-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>B2B-продукты</h3>
+                    <p>SaaS, платформы, цифровые решения с длинным циклом сделки</p>
+                </div>
+
+                <div class="audience-card animate-up delay-1">
+                    <div class="audience-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Консалтинг и услуги</h3>
+                    <p>Компании, которые продают экспертизу и сложные решения</p>
+                </div>
+
+                <div class="audience-card animate-up delay-2">
+                    <div class="audience-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Технологические стартапы</h3>
+                    <p>Кому нужен быстрый выход на лиц, принимающих решения</p>
+                </div>
+
+                <div class="audience-card animate-up delay-3">
+                    <div class="audience-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Производство B2B</h3>
+                    <p>Компании с узкой целевой аудиторией и экспертными продажами</p>
+                </div>
+
+                <div class="audience-card animate-up">
+                    <div class="audience-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Международный B2B</h3>
+                    <p>Выход на западные рынки с AI-персонализацией на английском</p>
+                </div>
+
+                <div class="audience-card animate-up delay-1">
+                    <div class="audience-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>IT и интеграторы</h3>
+                    <p>Сложные продукты, требующие квалифицированных лидов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 5: КЕЙСЫ -->
+    <section id="cases" class="cases" aria-labelledby="cases-title">
+        <div class="gradient-transition gradient-down"></div>
+        <div class="container">
+            <div class="animate-up">
+                <h2 class="section-title" id="cases-title">Результаты наших клиентов</h2>
+                <p class="section-subtitle">
+                    Как мы увеличили количество встреч для B2B-компаний
+                </p>
+            </div>
+
+            <div class="cases-grid">
+                <div class="case-card animate-up">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>SaaS-платформа для автоматизации</h3>
+                    <p>Построили систему генерации встреч с нуля. Через 3 месяца — 25+ встреч ежемесячно с директорами по развитию.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <div class="case-stat-value">25+</div>
+                            <div class="case-stat-label">Встреч в месяц</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">3x</div>
+                            <div class="case-stat-label">Рост pipeline</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card animate-up delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Консалтинговое агентство</h3>
+                    <p>AI-персонализация и мультиканальные цепочки увеличили конверсию в ответы на 340%. 12 встреч с ЛПР за первый месяц.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <div class="case-stat-value">+340%</div>
+                            <div class="case-stat-label">Конверсия в ответы</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">12</div>
+                            <div class="case-stat-label">Встреч за месяц</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card animate-up delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>IT-интегратор</h3>
+                    <p>Автоматизировали LinkedIn и email-прогрев. Стоимость встречи снизилась в 4 раза, количество квалифицированных лидов выросло на 200%.</p>
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <div class="case-stat-value">-75%</div>
+                            <div class="case-stat-label">Стоимость встречи</div>
+                        </div>
+                        <div class="case-stat">
+                            <div class="case-stat-value">+200%</div>
+                            <div class="case-stat-label">Квалиф. лиды</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center animate-up delay-3" style="margin-top: 60px;">
+                <a href="#contact" class="btn btn-primary btn-lg" onclick="openConsultationForm()" aria-label="Рассчитать потенциальный результат">
+                    <i class="fas fa-calculator btn-icon"></i> Рассчитать ваш потенциал
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 6: FAQ -->
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+        <div class="gradient-transition gradient-up"></div>
+        <div class="container">
+            <div class="faq-container">
+                <h2 class="section-title animate-up" id="faq-title">Часто задаваемые вопросы</h2>
+                <p class="section-subtitle animate-up delay-1">
+                    Ответы на вопросы о генерации встреч для B2B
+                </p>
+
+                <div class="faq-list">
+                    <!-- Вопрос 1 -->
+                    <div class="faq-item animate-up delay-1">
+                        <div class="faq-question" onclick="toggleFAQ(1)">
+                            <span>Что такое AI-система генерации встреч?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer" id="faq-answer-1">
+                            <p>Это комплексное решение: стратегия, инфраструктура и запуск мультиканального outbound с AI-персонализацией. Система автоматически находит, прогревает и квалифицирует потенциальных клиентов, передавая в продажи только готовые встречи.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 2 -->
+                    <div class="faq-item animate-up delay-2">
+                        <div class="faq-question" onclick="toggleFAQ(2)">
+                            <span>Какие каналы вы используете?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer" id="faq-answer-2">
+                            <p>Мультиканальный подход: email с прогревом доменов, LinkedIn автоматизация (коннекты, сообщения, inMail), а также интеграция с CRM. В зависимости от целевой аудитории добавляем и другие каналы.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 -->
+                    <div class="faq-item animate-up delay-3">
+                        <div class="faq-question" onclick="toggleFAQ(3)">
+                            <span>Как работает AI-персонализация?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer" id="faq-answer-3">
+                            <p>AI анализирует данные о компании и контакте (сайт, LinkedIn, новости, активность) и генерирует уникальное персонализированное сообщение под каждого ЛПР. Это повышает отклик в 3-5 раз по сравнению с шаблонами.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 4 -->
+                    <div class="faq-item animate-up delay-4">
+                        <div class="faq-question" onclick="toggleFAQ(4)">
+                            <span>Сколько времени нужно на запуск?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer" id="faq-answer-4">
+                            <p>Стратегия и настройка инфраструктуры занимают 2-3 недели. Первые результаты (встречи) обычно идут на 3-4 неделе после старта кампаний.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 5 -->
+                    <div class="faq-item animate-up delay-1">
+                        <div class="faq-question" onclick="toggleFAQ(5)">
+                            <span>Какие KPI мы отслеживаем?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer" id="faq-answer-5">
+                            <ul>
+                                <li>Количество квалифицированных встреч</li>
+                                <li>Конверсия на каждом этапе воронки</li>
+                                <li>Стоимость встречи</li>
+                                <li>Объем созданного pipeline</li>
+                                <li>ROI кампаний</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 6 -->
+                    <div class="faq-item animate-up delay-2">
+                        <div class="faq-question" onclick="toggleFAQ(6)">
+                            <span>С какими CRM вы интегрируетесь?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer" id="faq-answer-6">
+                            <p>Поддерживаем интеграцию с основными CRM: HubSpot, Salesforce, Pipedrive, AmoCRM, Bitrix24. Также можем настроить передачу данных через API или Zapier/Make.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 7 -->
+                    <div class="faq-item animate-up delay-3">
+                        <div class="faq-question" onclick="toggleFAQ(7)">
+                            <span>Подходит ли это для международных рынков?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer" id="faq-answer-7">
+                            <p>Да, мы работаем с разными регионами. AI-персонализация адаптируется под язык, культуру и особенности рынка. Есть опыт с США, Европой, Ближним Востоком и Азией.</p>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 8 -->
+                    <div class="faq-item animate-up delay-4">
+                        <div class="faq-question" onclick="toggleFAQ(8)">
+                            <span>Что нужно для старта?</span>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer" id="faq-answer-8">
+                            <p>Минимально: понимание вашего продукта и целевой аудитории. Мы помогаем с упаковкой оффера, поиском контактов и всей технической частью. Достаточно 1-2 встреч для стратегической сессии.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок 7: CTA -->
+    <section id="contact" class="cta" aria-labelledby="cta-title">
+        <div class="gradient-transition gradient-dark-up"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="animate-up" id="cta-title">Готовы к предсказуемому потоку встреч?</h2>
+                <p class="animate-up delay-1">
+                    Обсудим ваш продукт, целевую аудиторию и покажем, как AI-система 
+                    может удвоить количество встреч с ЛПР.
+                </p>
+
+                <div class="consultation-widget animate-scale delay-2">
+                    <div class="consultation-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="consultation-title">Обсудить проект</div>
+                    <p class="consultation-desc">Оставьте контакты, и мы свяжемся в течение 24 часов для бесплатной консультации</p>
+                    <a href="#consultation-form" class="btn btn-primary btn-lg" onclick="openConsultationForm()" aria-label="Оставить заявку">
+                        <i class="fas fa-calendar-check btn-icon"></i> Оставить заявку
+                    </a>
+                </div>
+
+                <div class="hero-stats animate-up delay-3">
+                    <div class="stat">
+                        <div class="stat-number">0 ₽</div>
+                        <div class="stat-label">За консультацию</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24 ч</div>
+                        <div class="stat-label">На ответ</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">B2B</div>
+                        <div class="stat-label">Только целевые</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-icon"></div>
+                        <div class="logo-text">TalkaLab</div>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; line-height: 1.6;">
+                        Строим и запускаем AI-системы генерации встреч для B2B-компаний. 
+                        Предсказуемый поток встреч с целевыми ЛПР.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://t.me/talka_lab" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram канал TalkaLab">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://t.me/talka_lab_support_bot" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Техподдержка TalkaLab">
+                            <i class="fas fa-headset"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Что входит</a></li>
+                        <li><a href="#process">Этапы</a></li>
+                        <li><a href="#audience">Для кого</a></li>
+                        <li><a href="#cases">Кейсы</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Решения</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Стратегия и ICP</a></li>
+                        <li><a href="#services">Инфраструктура outbound</a></li>
+                        <li><a href="#services">AI-персонализация</a></li>
+                        <li><a href="#services">Мультиканальные цепочки</a></li>
+                        <li><a href="#services">Масштабирование</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://t.me/talka_lab" target="_blank" rel="noopener noreferrer">Канал: @talka_lab</a></li>
+                        <li><a href="https://t.me/talka_lab_support_bot" target="_blank" rel="noopener noreferrer">Техподдержка</a></li>
+                        <li><a href="#contact" onclick="openConsultationForm()">Обсудить проект</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; <span id="currentYear">2026</span> TalkaLab. Все права защищены.</p>
+                <div class="copyright-links">
+                    <a href="#" onclick="openPrivacyPolicy()">Политика конфиденциальности</a>
+                    <a href="#" onclick="openTerms()">Пользовательское соглашение</a>
+                    <a href="#contact" onclick="openConsultationForm()">Обратная связь</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- МОДАЛЬНОЕ ОКНО ФОРМЫ КОНСУЛЬТАЦИИ -->
+    <div id="consultationModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="brief-header">
+                <button class="close-modal" onclick="closeConsultationForm()" aria-label="Закрыть форму">×</button>
+                <h3>Обсудить проект</h3>
+                <p>Оставьте контакты, и мы свяжемся в течение 24 часов</p>
+            </div>
+            <div class="brief-body">
+                <form id="consultationForm" class="brief-form">
+                    <div class="form-group">
+                        <label for="clientName">Ваше имя</label>
+                        <input type="text" id="clientName" name="name" required placeholder="Введите ваше имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientTelegram">
+                            Ваш Telegram username 
+                            <button type="button" class="help-btn" onclick="openInstruction()" aria-label="Как найти Telegram username">
+                                <i class="fas fa-question-circle"></i> Как найти?
+                            </button>
+                        </label>
+                        <input type="text" id="clientTelegram" name="telegram" required placeholder="@username (например: @ivanov)">
+                    </div>
+                    <button type="submit" class="submit-btn" aria-label="Отправить заявку">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ИНСТРУКЦИИ -->
+    <div id="instructionModal" class="instruction-modal">
+        <div class="instruction-content">
+            <div class="instruction-header">
+                <button class="close-instruction" onclick="closeInstruction()" aria-label="Закрыть инструкцию">×</button>
+                <h3>Как найти Telegram username?</h3>
+                <p>Простая инструкция для поиска вашего username в Telegram</p>
+            </div>
+            <div class="instruction-body">
+                <div class="instruction-steps">
+                    <div class="instruction-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Откройте Telegram</h4>
+                            <p>Запустите приложение Telegram на вашем телефоне.</p>
+                        </div>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Перейдите в настройки</h4>
+                            <p>Нажмите на значок меню (три полоски) в левом верхнем углу, затем выберите "Настройки".</p>
+                        </div>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Найдите свой username</h4>
+                            <p>В настройках нажмите на свой профиль вверху. Здесь вы увидите поле "Username".</p>
+                        </div>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Скопируйте username</h4>
+                            <p>Если у вас есть username (начинается с @), скопируйте его. Если нет — создайте новый.</p>
+                        </div>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Как создать username?</h4>
+                            <p>Если у вас нет username, нажмите "Установить username". Придумайте и введите его (например: @ivanov).</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 25px;">
+                    <h4 style="color: #333; margin-bottom: 10px;"><i class="fas fa-lightbulb"></i> Важно знать</h4>
+                    <p style="color: #666; margin-bottom: 5px; font-size: 0.9rem;">• Username всегда начинается с символа @</p>
+                    <p style="color: #666; margin-bottom: 5px; font-size: 0.9rem;">• Он может содержать латинские буквы, цифры и нижние подчеркивания</p>
+                    <p style="color: #666; margin-bottom: 0; font-size: 0.9rem;">• Примеры правильных username: @ivanov, @maria_2023, @company_name</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно политики конфиденциальности -->
+    <div id="privacyModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="brief-header">
+                <button class="close-modal" onclick="closePrivacyPolicy()" aria-label="Закрыть политику конфиденциальности">×</button>
+                <h3>Политика конфиденциальности</h3>
+            </div>
+            <div class="brief-body">
+                <div style="max-height: 400px; overflow-y: auto; padding-right: 10px;">
+                    <h4>1. Общие положения</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                        Настоящая политика конфиденциальности регулирует порядок обработки и защиты информации о физических лицах, пользующихся услугами сайта TalkaLab.
+                    </p>
+                    
+                    <h4>2. Сбор информации</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                        Мы собираем только ту информацию, которую вы предоставляете нам добровольно при заполнении форм на сайте: имя и Telegram username.
+                    </p>
+                    
+                    <h4>3. Использование информации</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                        Предоставленная информация используется исключительно для связи с вами и предоставления консультационных услуг.
+                    </p>
+                    
+                    <h4>4. Защита информации</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                        Мы принимаем необходимые меры для защиты вашей персональной информации от несанкционированного доступа.
+                    </p>
+                    
+                    <h4>5. Контакты</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                        По вопросам защиты персональных данных обращайтесь в Telegram: @talka_lab
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно пользовательского соглашения -->
+    <div id="termsModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="brief-header">
+                <button class="close-modal" onclick="closeTerms()" aria-label="Закрыть пользовательское соглашение">×</button>
+                <h3>Пользовательское соглашение</h3>
+            </div>
+            <div class="brief-body">
+                <div style="max-height: 400px; overflow-y: auto; padding-right: 10px;">
+                    <h4>1. Общие положения</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                        Настоящее Соглашение регулирует отношения между TalkaLab и Пользователем по использованию сайта и услуг.
+                    </p>
+                    
+                    <h4>2. Условия использования</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                        Используя сайт TalkaLab, вы подтверждаете, что ознакомились с условиями настоящего Соглашения и принимаете их.
+                    </p>
+                    
+                    <h4>3. Услуги</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                        TalkaLab предоставляет услуги по построению и запуску AI-систем генерации встреч для B2B-компаний.
+                    </p>
+                    
+                    <h4>4. Ответственность</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                        TalkaLab не несет ответственности за любые косвенные убытки, возникшие в результате использования или невозможности использования услуг.
+                    </p>
+                    
+                    <h4>5. Контакты</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">
+                        По всем вопросам обращайтесь: Telegram @talka_lab
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем JavaScript -->
+    <script src="./script.js"></script>
+</body>
+</html>
