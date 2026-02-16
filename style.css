@@ -1907,3 +1907,67 @@ footer {
         height: 30px !important;
     }
 }
+/* ===== ФИНАЛЬНЫЙ ФИКС ЛОГОТИПА - ГАРАНТИРОВАННОЕ ОТОБРАЖЕНИЕ НА ВСЕХ УСТРОЙСТВАХ ===== */
+.logo {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.logo-icon {
+    display: block !important;
+    width: 42px !important;
+    height: 42px !important;
+    background: var(--logo-url) center/contain no-repeat !important;
+}
+
+.logo-text {
+    display: block !important;
+    font-size: 1.6rem !important;
+    color: var(--text-primary) !important;
+}
+
+/* Мобильные устройства */
+@media (max-width: 992px) {
+    .logo {
+        display: flex !important;
+    }
+    
+    .logo-text {
+        font-size: 1.3rem !important;
+    }
+    
+    .logo-icon {
+        width: 38px !important;
+        height: 38px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.2rem !important;
+    }
+    
+    .logo-icon {
+        width: 35px !important;
+        height: 35px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1rem !important;
+    }
+    
+    .logo-icon {
+        width: 32px !important;
+        height: 32px !important;
+    }
+}
+
+/* Отключаем любые скрывающие стили */
+header .logo,
+.header-container .logo,
+#header .logo {
+    display: flex !important;
+}
