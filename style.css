@@ -18,7 +18,7 @@
     --gray-100: #f8fafc;
     --white: #ffffff;
 
-    /* Ссылка на СВЕТЛУЮ версию логотипа */
+    /* Ссылка на логотип */
     --logo-url: url('https://i.yapx.ru/c0GqR.png');
     --footer-logo-url: url('https://i.yapx.ru/c0GqR.png');
 
@@ -57,7 +57,6 @@
     --card-bg: var(--gray-900);
     --header-bg: rgba(15, 23, 42, 0.95);
     --border-color: var(--gray-800);
-    --white: #0f172a;
 }
 
 * {
@@ -140,7 +139,7 @@ section {
     display: block;
 }
 
-/* ===== ГРАДИЕНТНЫЕ ПЕРЕХОДЫ МЕЖДУ СЕКЦИЯМИ ===== */
+/* ===== ГРАДИЕНТНЫЕ ПЕРЕХОДЫ ===== */
 .gradient-transition {
     position: absolute;
     top: 0;
@@ -163,11 +162,7 @@ section {
     background: linear-gradient(to bottom, var(--dark), transparent);
 }
 
-.gradient-dark-down {
-    background: linear-gradient(to top, var(--dark), transparent);
-}
-
-/* ===== ТИПОГРАФИЯ С АНИМАЦИЯМИ ===== */
+/* ===== АНИМАЦИИ ===== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -176,28 +171,6 @@ section {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
     }
 }
 
@@ -215,16 +188,6 @@ section {
 .animate-up {
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
-}
-
-.animate-left {
-    opacity: 0;
-    animation: fadeInLeft 0.8s ease forwards;
-}
-
-.animate-right {
-    opacity: 0;
-    animation: fadeInRight 0.8s ease forwards;
 }
 
 .animate-scale {
@@ -320,30 +283,32 @@ header.scrolled {
     align-items: center;
 }
 
-/* БЛОК ЛОГОТИПА - СЛЕВА */
+/* ===== ЛОГОТИП - АБСОЛЮТНО ВСЕГДА ВИДЕН ===== */
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    transition: var(--transition);
-    order: 1;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    text-decoration: none !important;
+    transition: var(--transition) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .logo-icon {
-    width: 42px;
-    height: 42px;
-    background: var(--logo-url) center/contain no-repeat;
-    flex-shrink: 0;
-    transition: background 0.3s ease;
+    display: block !important;
+    width: 42px !important;
+    height: 42px !important;
+    background: var(--logo-url) center/contain no-repeat !important;
+    flex-shrink: 0 !important;
 }
 
 .logo-text {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    letter-spacing: -0.5px;
-    font-family: 'Inter', sans-serif;
+    display: block !important;
+    font-size: 1.6rem !important;
+    font-weight: 800 !important;
+    color: var(--text-primary) !important;
+    letter-spacing: -0.5px !important;
+    font-family: 'Inter', sans-serif !important;
 }
 
 .logo:hover {
@@ -351,12 +316,42 @@ header.scrolled {
     opacity: 0.9;
 }
 
-/* НАВИГАЦИЯ - ФИКСИРОВАННЫЕ ЦВЕТА КАК В СВЕТЛОЙ ТЕМЕ */
+/* Мобильные версии логотипа */
+@media (max-width: 992px) {
+    .logo-text {
+        font-size: 1.3rem !important;
+    }
+    .logo-icon {
+        width: 38px !important;
+        height: 38px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.2rem !important;
+    }
+    .logo-icon {
+        width: 35px !important;
+        height: 35px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1rem !important;
+    }
+    .logo-icon {
+        width: 32px !important;
+        height: 32px !important;
+    }
+}
+
+/* ===== НАВИГАЦИЯ ===== */
 .nav {
     display: flex;
     gap: 40px;
     align-items: center;
-    order: 2;
 }
 
 .nav-link {
@@ -369,7 +364,6 @@ header.scrolled {
     padding: 8px 0;
 }
 
-/* В темной теме меню остается как в светлой */
 .dark-theme .nav-link {
     color: #334155;
 }
@@ -403,7 +397,6 @@ header.scrolled {
     position: relative;
     cursor: pointer;
     z-index: 1001;
-    order: 3;
 }
 
 .mobile-menu-btn span {
@@ -491,15 +484,6 @@ header.scrolled {
     transform: translateX(0);
 }
 
-.mobile-menu.active .nav-link:nth-child(1) { transition-delay: 0.1s; }
-.mobile-menu.active .nav-link:nth-child(2) { transition-delay: 0.2s; }
-.mobile-menu.active .nav-link:nth-child(3) { transition-delay: 0.3s; }
-.mobile-menu.active .nav-link:nth-child(4) { transition-delay: 0.4s; }
-.mobile-menu.active .nav-link:nth-child(5) { transition-delay: 0.5s; }
-.mobile-menu.active .nav-link:nth-child(6) { transition-delay: 0.6s; }
-.mobile-menu.active .btn:nth-child(7) { transition-delay: 0.7s; }
-.mobile-menu.active .btn:nth-child(8) { transition-delay: 0.8s; }
-
 /* ===== КНОПКИ ===== */
 .btn {
     display: inline-flex;
@@ -513,23 +497,7 @@ header.scrolled {
     transition: var(--transition);
     border: none;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
     gap: 10px;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary);
-    z-index: -1;
-    transition: var(--transition);
-    opacity: 0;
 }
 
 .btn-primary {
@@ -576,7 +544,7 @@ header.scrolled {
     font-size: 1.2rem;
 }
 
-/* ===== БЛОК 1: ГЕРОЙ ===== */
+/* ===== ГЕРОЙ ===== */
 .hero {
     padding: 180px 0 120px;
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 50%, var(--bg-secondary) 100%);
@@ -623,7 +591,7 @@ header.scrolled {
     backdrop-filter: blur(10px);
 }
 
-/* Стили для переписки */
+/* Чат демо */
 .chat-demo {
     background: var(--card-bg);
     border-radius: var(--border-radius-lg);
@@ -777,7 +745,7 @@ header.scrolled {
     letter-spacing: 1px;
 }
 
-/* ===== БЛОК 2: СРАВНЕНИЕ/ЭТАПЫ ===== */
+/* ===== СРАВНЕНИЕ ===== */
 .comparison {
     padding: 120px 0;
     background: var(--bg-primary);
@@ -839,7 +807,7 @@ header.scrolled {
     color: var(--primary);
 }
 
-/* ===== БЛОК 3: ЧЕМ МЫ ЗАНИМАЕМСЯ ===== */
+/* ===== УСЛУГИ ===== */
 .services {
     padding: 120px 0;
     background: var(--bg-secondary);
@@ -860,8 +828,6 @@ header.scrolled {
     padding: 40px;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    position: relative;
-    overflow: hidden;
     border: 1px solid var(--border-color);
     height: 100%;
 }
@@ -913,7 +879,7 @@ header.scrolled {
     font-size: 1.5rem;
 }
 
-/* ===== БЛОК 4: ДЛЯ КОГО ===== */
+/* ===== ДЛЯ КОГО ===== */
 .audience {
     padding: 120px 0;
     background: var(--bg-secondary);
@@ -956,7 +922,7 @@ header.scrolled {
     font-size: 1.5rem;
 }
 
-/* ===== БЛОК 5: КЕЙСЫ ===== */
+/* ===== КЕЙСЫ ===== */
 .cases {
     padding: 120px 0;
     background: var(--bg-primary);
@@ -1010,7 +976,7 @@ header.scrolled {
     margin-top: 5px;
 }
 
-/* ===== БЛОК 6: FAQ ===== */
+/* ===== FAQ ===== */
 .faq {
     padding: 120px 0;
     background: var(--bg-secondary);
@@ -1098,7 +1064,7 @@ header.scrolled {
     line-height: 1.5;
 }
 
-/* ===== БЛОК 7: CTA ===== */
+/* ===== CTA ===== */
 .cta {
     padding: 120px 0;
     background: var(--gradient-dark);
@@ -1175,7 +1141,7 @@ header.scrolled {
     line-height: 1.6;
 }
 
-/* ===== ПОДВАЛ САЙТА ===== */
+/* ===== ПОДВАЛ ===== */
 footer {
     background: var(--dark);
     color: white;
@@ -1208,7 +1174,6 @@ footer {
     width: 36px;
     height: 36px;
     background: var(--footer-logo-url) center/contain no-repeat;
-    transition: background 0.3s ease;
 }
 
 .footer-logo .logo-text {
@@ -1288,7 +1253,7 @@ footer {
     color: white;
 }
 
-/* ===== МОДАЛЬНОЕ ОКНО ФОРМЫ ===== */
+/* ===== МОДАЛЬНЫЕ ОКНА ===== */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -1324,17 +1289,6 @@ footer {
     position: relative;
 }
 
-.brief-header::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 40px;
-    width: 60px;
-    height: 4px;
-    background: #4af0c1;
-    border-radius: 2px;
-}
-
 .brief-header h3 {
     color: white;
     margin-bottom: 10px;
@@ -1353,7 +1307,6 @@ footer {
 
 .brief-form .form-group {
     margin-bottom: 25px;
-    position: relative;
 }
 
 .brief-form label {
@@ -1415,7 +1368,6 @@ footer {
     cursor: pointer;
     font-size: 1.2rem;
     transition: var(--transition);
-    z-index: 2;
 }
 
 .close-modal:hover {
@@ -1441,7 +1393,7 @@ footer {
     background: rgba(21, 188, 138, 0.1);
 }
 
-/* Модальное окно инструкции */
+/* Инструкция */
 .instruction-modal {
     display: none;
     position: fixed;
@@ -1556,14 +1508,13 @@ footer {
     cursor: pointer;
     font-size: 1.2rem;
     transition: var(--transition);
-    z-index: 2;
 }
 
 .close-instruction:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* ===== ПРОГРЕСС-БАР СКРОЛЛА ===== */
+/* ===== ПРОГРЕСС-БАР ===== */
 .scroll-progress {
     position: fixed;
     top: 0;
@@ -1575,7 +1526,7 @@ footer {
     transition: width 0.3s ease;
 }
 
-/* ===== УВЕДОМЛЕНИЕ ОБ УСПЕШНОЙ ОТПРАВКЕ ===== */
+/* ===== УВЕДОМЛЕНИЕ ===== */
 .success-notification {
     position: fixed;
     top: 100px;
@@ -1684,13 +1635,6 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
-
-    .success-notification {
-        top: 80px;
-        left: 20px;
-        right: 20px;
-        max-width: none;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1715,26 +1659,8 @@ footer {
         font-size: 1rem;
     }
 
-    .faq-answer {
-        padding: 0 24px;
-    }
-
-    .faq-answer.active {
-        padding: 0 24px 24px;
-    }
-
-    .chat-demo {
-        padding: 20px;
-    }
-
-    .comparison-column {
-        padding: 30px 24px;
-    }
-
-    .service-card,
-    .audience-card,
-    .case-card {
-        padding: 32px 24px;
+    .audience-grid {
+        grid-template-columns: 1fr;
     }
 
     .theme-toggle {
@@ -1742,66 +1668,6 @@ footer {
         right: 20px;
         width: 50px;
         height: 50px;
-    }
-
-    .modal-content {
-        max-width: 100%;
-    }
-
-    .brief-header,
-    .brief-body {
-        padding: 25px 20px;
-    }
-
-    .instruction-content {
-        max-width: 100%;
-    }
-
-    .instruction-body {
-        padding: 20px;
-    }
-
-    .instruction-step {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .step-number {
-        align-self: flex-start;
-    }
-
-    .close-modal {
-        top: 15px;
-        right: 15px;
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-    }
-
-    .brief-header h3 {
-        padding-right: 40px;
-        font-size: 1.3rem;
-    }
-
-    .brief-header p {
-        padding-right: 40px;
-        font-size: 0.9rem;
-    }
-
-    .close-instruction {
-        top: 15px;
-        right: 15px;
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-    }
-
-    .instruction-header h3 {
-        padding-right: 40px;
-    }
-
-    .instruction-header p {
-        padding-right: 40px;
     }
 }
 
@@ -1828,146 +1694,7 @@ footer {
         font-size: 0.9rem;
     }
 
-    .hero-buttons {
-        gap: 15px;
-    }
-
     .container {
         padding: 0 16px;
     }
-
-    .logo-text {
-        font-size: 1.3rem;
-    }
-
-    .logo-icon {
-        width: 35px;
-        height: 35px;
-    }
-
-    .audience-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .close-modal {
-        top: 12px;
-        right: 12px;
-    }
-
-    .brief-header h3 {
-        padding-right: 35px;
-        font-size: 1.2rem;
-    }
-
-    .close-instruction {
-        top: 12px;
-        right: 12px;
-    }
-}
-
-/* ===== ФИКС ДЛЯ ЛОГОТИПА НА МОБИЛЬНЫХ УСТРОЙСТВАХ ===== */
-@media (max-width: 992px) {
-    .logo {
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .logo-text {
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .logo-icon {
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .logo-text {
-        font-size: 1.2rem !important;
-    }
-    
-    .logo-icon {
-        width: 35px !important;
-        height: 35px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-text {
-        font-size: 1rem !important;
-    }
-    
-    .logo-icon {
-        width: 30px !important;
-        height: 30px !important;
-    }
-}
-/* ===== ФИНАЛЬНЫЙ ФИКС ЛОГОТИПА - ГАРАНТИРОВАННОЕ ОТОБРАЖЕНИЕ НА ВСЕХ УСТРОЙСТВАХ ===== */
-.logo {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-.logo-icon {
-    display: block !important;
-    width: 42px !important;
-    height: 42px !important;
-    background: var(--logo-url) center/contain no-repeat !important;
-}
-
-.logo-text {
-    display: block !important;
-    font-size: 1.6rem !important;
-    color: var(--text-primary) !important;
-}
-
-/* Мобильные устройства */
-@media (max-width: 992px) {
-    .logo {
-        display: flex !important;
-    }
-    
-    .logo-text {
-        font-size: 1.3rem !important;
-    }
-    
-    .logo-icon {
-        width: 38px !important;
-        height: 38px !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .logo-text {
-        font-size: 1.2rem !important;
-    }
-    
-    .logo-icon {
-        width: 35px !important;
-        height: 35px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-text {
-        font-size: 1rem !important;
-    }
-    
-    .logo-icon {
-        width: 32px !important;
-        height: 32px !important;
-    }
-}
-
-/* Отключаем любые скрывающие стили */
-header .logo,
-.header-container .logo,
-#header .logo {
-    display: flex !important;
 }
