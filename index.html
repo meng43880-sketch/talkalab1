@@ -20,9 +20,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <!-- Open Graph для соцсетей -->
+    <!-- Open Graph для соцсетей (Telegram, Facebook, VK) -->
     <meta property="og:title" content="TalkaLab — AI-системы генерации встреч для B2B">
-    <meta property="og:description" content="Строим и запускаем AI-системы генерации встреч для B2B-компаний. Стратегия, инфраструктура, мультиканальный outbound, AI-персонализация. Предсказуемый поток встреч с ЛПР.">
+    <meta property="og:description" content="Строим и запускаем AI-системы генерации встреч для B2B-компаний. Стратегия, инфраструктура, мультиканальный outbound с AI-персонализацией. Предсказуемый поток встреч с ЛПР.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://talkalab.ru/">
     <meta property="og:image" content="images/og-preview.jpg">
@@ -99,6 +99,35 @@
     }
     </script>
     
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "Что такое AI-система генерации встреч?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Это комплексное решение: стратегия, инфраструктура и запуск мультиканального outbound с AI-персонализацией. Система автоматически находит, прогревает и квалифицирует потенциальных клиентов, передавая в продажи только готовые встречи."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Какие каналы вы используете?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Мультиканальный подход: email с прогревом доменов, LinkedIn автоматизация (коннекты, сообщения, inMail), а также интеграция с CRM. В зависимости от целевой аудитории добавляем и другие каналы."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Как работает AI-персонализация?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AI анализирует данные о компании и контакте (сайт, LinkedIn, новости, активность) и генерирует уникальное персонализированное сообщение под каждого ЛПР. Это повышает отклик в 3-5 раз по сравнению с шаблонами."
+            }
+        }]
+    }
+    </script>
+    
     <!-- PWA манифест -->
     <link rel="manifest" href="./manifest.json">
 </head>
@@ -127,7 +156,7 @@
     <!-- Шапка -->
     <header id="header">
         <div class="container header-container">
-            <!-- ЛОГОТИП СЛЕВА - ГАРАНТИРОВАННО ВИДЕН -->
+            <!-- ЛОГОТИП СЛЕВА -->
             <a href="./" class="logo" id="main-logo" itemprop="url" aria-label="TalkaLab - Главная страница">
                 <div class="logo-icon" itemprop="logo"></div>
                 <div class="logo-text" itemprop="name">TalkaLab</div>
@@ -461,12 +490,12 @@
             </div>
 
             <div class="cases-grid">
-                <div class="case-card animate-up">
+                <div class="case-card animate-up" itemscope itemtype="https://schema.org/Review">
                     <div class="service-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3>SaaS-платформа для автоматизации</h3>
-                    <p>Построили систему генерации встреч с нуля. Через 3 месяца — 25+ встреч ежемесячно с директорами по развитию.</p>
+                    <h3 itemprop="itemReviewed">SaaS-платформа для автоматизации</h3>
+                    <p itemprop="reviewBody">Построили систему генерации встреч с нуля. Через 3 месяца — 25+ встреч ежемесячно с директорами по развитию.</p>
                     <div class="case-stats">
                         <div class="case-stat">
                             <div class="case-stat-value">25+</div>
@@ -479,12 +508,12 @@
                     </div>
                 </div>
 
-                <div class="case-card animate-up delay-1">
+                <div class="case-card animate-up delay-1" itemscope itemtype="https://schema.org/Review">
                     <div class="service-icon">
                         <i class="fas fa-chart-bar"></i>
                     </div>
-                    <h3>Консалтинговое агентство</h3>
-                    <p>AI-персонализация и мультиканальные цепочки увеличили конверсию в ответы на 340%. 12 встреч с ЛПР за первый месяц.</p>
+                    <h3 itemprop="itemReviewed">Консалтинговое агентство</h3>
+                    <p itemprop="reviewBody">AI-персонализация и мультиканальные цепочки увеличили конверсию в ответы на 340%. 12 встреч с ЛПР за первый месяц.</p>
                     <div class="case-stats">
                         <div class="case-stat">
                             <div class="case-stat-value">+340%</div>
@@ -497,12 +526,12 @@
                     </div>
                 </div>
 
-                <div class="case-card animate-up delay-2">
+                <div class="case-card animate-up delay-2" itemscope itemtype="https://schema.org/Review">
                     <div class="service-icon">
                         <i class="fas fa-microchip"></i>
                     </div>
-                    <h3>IT-интегратор</h3>
-                    <p>Автоматизировали LinkedIn и email-прогрев. Стоимость встречи снизилась в 4 раза, количество квалифицированных лидов выросло на 200%.</p>
+                    <h3 itemprop="itemReviewed">IT-интегратор</h3>
+                    <p itemprop="reviewBody">Автоматизировали LinkedIn и email-прогрев. Стоимость встречи снизилась в 4 раза, количество квалифицированных лидов выросло на 200%.</p>
                     <div class="case-stats">
                         <div class="case-stat">
                             <div class="case-stat-value">-75%</div>
@@ -536,56 +565,56 @@
 
                 <div class="faq-list">
                     <!-- Вопрос 1 -->
-                    <div class="faq-item animate-up delay-1">
+                    <div class="faq-item animate-up delay-1" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(1)">
-                            <span>Что такое AI-система генерации встреч?</span>
+                            <span itemprop="name">Что такое AI-система генерации встреч?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-1">
-                            <p>Это комплексное решение: стратегия, инфраструктура и запуск мультиканального outbound с AI-персонализацией. Система автоматически находит, прогревает и квалифицирует потенциальных клиентов, передавая в продажи только готовые встречи.</p>
+                        <div class="faq-answer" id="faq-answer-1" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Это комплексное решение: стратегия, инфраструктура и запуск мультиканального outbound с AI-персонализацией. Система автоматически находит, прогревает и квалифицирует потенциальных клиентов, передавая в продажи только готовые встречи.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 2 -->
-                    <div class="faq-item animate-up delay-2">
+                    <div class="faq-item animate-up delay-2" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(2)">
-                            <span>Какие каналы вы используете?</span>
+                            <span itemprop="name">Какие каналы вы используете?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-2">
-                            <p>Мультиканальный подход: email с прогревом доменов, LinkedIn автоматизация (коннекты, сообщения, inMail), а также интеграция с CRM. В зависимости от целевой аудитории добавляем и другие каналы.</p>
+                        <div class="faq-answer" id="faq-answer-2" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Мультиканальный подход: email с прогревом доменов, LinkedIn автоматизация (коннекты, сообщения, inMail), а также интеграция с CRM. В зависимости от целевой аудитории добавляем и другие каналы.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 3 -->
-                    <div class="faq-item animate-up delay-3">
+                    <div class="faq-item animate-up delay-3" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(3)">
-                            <span>Как работает AI-персонализация?</span>
+                            <span itemprop="name">Как работает AI-персонализация?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-3">
-                            <p>AI анализирует данные о компании и контакте (сайт, LinkedIn, новости, активность) и генерирует уникальное персонализированное сообщение под каждого ЛПР. Это повышает отклик в 3-5 раз по сравнению с шаблонами.</p>
+                        <div class="faq-answer" id="faq-answer-3" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">AI анализирует данные о компании и контакте (сайт, LinkedIn, новости, активность) и генерирует уникальное персонализированное сообщение под каждого ЛПР. Это повышает отклик в 3-5 раз по сравнению с шаблонами.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 4 -->
-                    <div class="faq-item animate-up delay-4">
+                    <div class="faq-item animate-up delay-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(4)">
-                            <span>Сколько времени нужно на запуск?</span>
+                            <span itemprop="name">Сколько времени нужно на запуск?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-4">
-                            <p>Стратегия и настройка инфраструктуры занимают 2-3 недели. Первые результаты (встречи) обычно идут на 3-4 неделе после старта кампаний.</p>
+                        <div class="faq-answer" id="faq-answer-4" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Стратегия и настройка инфраструктуры занимают 2-3 недели. Первые результаты (встречи) обычно идут на 3-4 неделе после старта кампаний.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 5 -->
-                    <div class="faq-item animate-up delay-1">
+                    <div class="faq-item animate-up delay-1" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(5)">
-                            <span>Какие KPI мы отслеживаем?</span>
+                            <span itemprop="name">Какие KPI мы отслеживаем?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-5">
+                        <div class="faq-answer" id="faq-answer-5" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <ul>
                                 <li>Количество квалифицированных встреч</li>
                                 <li>Конверсия на каждом этапе воронки</li>
@@ -597,35 +626,35 @@
                     </div>
 
                     <!-- Вопрос 6 -->
-                    <div class="faq-item animate-up delay-2">
+                    <div class="faq-item animate-up delay-2" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(6)">
-                            <span>С какими CRM вы интегрируетесь?</span>
+                            <span itemprop="name">С какими CRM вы интегрируетесь?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-6">
-                            <p>Поддерживаем интеграцию с основными CRM: HubSpot, Salesforce, Pipedrive, AmoCRM, Bitrix24. Также можем настроить передачу данных через API или Zapier/Make.</p>
+                        <div class="faq-answer" id="faq-answer-6" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Поддерживаем интеграцию с основными CRM: HubSpot, Salesforce, Pipedrive, AmoCRM, Bitrix24. Также можем настроить передачу данных через API или Zapier/Make.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 7 -->
-                    <div class="faq-item animate-up delay-3">
+                    <div class="faq-item animate-up delay-3" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(7)">
-                            <span>Подходит ли это для международных рынков?</span>
+                            <span itemprop="name">Подходит ли это для международных рынков?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-7">
-                            <p>Да, мы работаем с разными регионами. AI-персонализация адаптируется под язык, культуру и особенности рынка. Есть опыт с США, Европой, Ближним Востоком и Азией.</p>
+                        <div class="faq-answer" id="faq-answer-7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Да, мы работаем с разными регионами. AI-персонализация адаптируется под язык, культуру и особенности рынка. Есть опыт с США, Европой, Ближним Востоком и Азией.</p>
                         </div>
                     </div>
 
                     <!-- Вопрос 8 -->
-                    <div class="faq-item animate-up delay-4">
+                    <div class="faq-item animate-up delay-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <div class="faq-question" onclick="toggleFAQ(8)">
-                            <span>Что нужно для старта?</span>
+                            <span itemprop="name">Что нужно для старта?</span>
                             <i class="fas fa-plus faq-icon"></i>
                         </div>
-                        <div class="faq-answer" id="faq-answer-8">
-                            <p>Минимально: понимание вашего продукта и целевой аудитории. Мы помогаем с упаковкой оффера, поиском контактов и всей технической частью. Достаточно 1-2 встреч для стратегической сессии.</p>
+                        <div class="faq-answer" id="faq-answer-8" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Минимально: понимание вашего продукта и целевой аудитории. Мы помогаем с упаковкой оффера, поиском контактов и всей технической частью. Достаточно 1-2 встреч для стратегической сессии.</p>
                         </div>
                     </div>
                 </div>
