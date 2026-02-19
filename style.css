@@ -19,8 +19,8 @@
     --white: #ffffff;
 
     /* Ссылка на логотип */
-    --logo-url: url('https://i.yapx.ru/c0GqR.png');
-    --footer-logo-url: url('https://i.yapx.ru/c0GqR.png');
+    --logo-url: url('./images.logo.jpg');
+    --footer-logo-url: url('./images.logo.jpg');
 
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     --gradient-dark: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
@@ -1698,3 +1698,4 @@ footer {
         padding: 0 16px;
     }
 }
+
